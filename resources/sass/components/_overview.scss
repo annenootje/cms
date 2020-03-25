@@ -1,0 +1,90 @@
+.overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+
+    .item {
+        position: relative;
+
+        box-shadow: $box-shadow-1;
+        padding: 30px;
+
+        background: white;
+
+        .title {
+            min-height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .text {
+            margin-bottom: 30px;
+            min-height: 35px;
+        }
+
+        .progress {
+            border-radius: 20px;
+            height: 5px;
+
+            background-color: $grey-200;
+
+            .inner {
+                width: 30%;
+                border-radius: 20px;
+                height: 5px;
+
+                &.red {
+                    background: $red;
+                }
+                &.orange {
+                    background: $orange;
+                }
+                &.green {
+                    background: $green;
+                }
+            }
+        }
+
+        .controls {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            display: flex;
+
+            visibility: hidden;
+            opacity: 0;
+
+            transition: $transition;
+
+            .control {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                cursor: pointer;
+                width: 50%;
+                
+                background-color: $blue-700;
+
+                p {
+                    color: white;
+                    margin-top: 15px;
+                }
+
+                &:nth-child(2) {
+                    background-color: $blue-800;
+                }
+            }
+        }
+
+        &:hover {
+            .controls {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}

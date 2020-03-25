@@ -1,0 +1,31 @@
+.button {
+    padding: 10px 30px;
+    border-radius: 200px;
+
+    background-color: $black;
+
+    color: white;
+}
+
+.icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    padding-top: 4px;
+    border-radius: 100%;
+    transition: 250ms ease-in-out;
+    cursor: pointer;
+
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &.active
+    {
+        background-color: $grey-200;
+    }
+}

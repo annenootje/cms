@@ -1,0 +1,65 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    color: $black;
+}
+
+::selection {
+    background-color: $green;
+    color: white;
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700;
+
+    & + p {
+        margin-top: 15px;
+    }
+}
+
+h2 {
+    font-size: 22px;
+    line-height: 26px;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+h5 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: $grey-300;
+}
+
+a {
+    font-size: 14px;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+
+    transition: opacity 250ms ease-in-out;
+}

@@ -1,0 +1,287 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:600,700&display=swap);@import url(https://use.typekit.net/trg2yhi.css);* {
+  font-family: "Josefin Sans", sans-serif;
+  color: #212121;
+}
+
+::-moz-selection {
+  background-color: #4DAD92;
+  color: white;
+}
+
+::selection {
+  background-color: #4DAD92;
+  color: white;
+}
+
+h1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+h1 + p {
+  margin-top: 15px;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 26px;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h3 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+h5 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 14px;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #C6C6C6;
+}
+
+a {
+  font-size: 14px;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  transition: opacity 250ms ease-in-out;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+}
+
+header .logo {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  background-image: url("/img/logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-size: 30px;
+}
+
+header .menu {
+  width: calc(100% - 80px);
+  border-left: 2px solid #F8F8F8;
+}
+
+header .menu .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 0 80px;
+}
+
+header .menu .inner a {
+  font-size: 16px;
+}
+
+header .menu .inner a:hover,
+header .menu .inner a.active {
+  opacity: 0.4;
+}
+
+header .menu .inner a + a {
+  margin-left: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  position: fixed;
+  top: 80px;
+  width: 80px;
+  height: calc(100vh - 80px);
+  border-top: 2px solid #F8F8F8;
+  background-color: white;
+}
+
+.sidebar .info {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  color: #C6C6C6;
+}
+
+.sidebar .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid #F8F8F8;
+  height: 80px;
+  width: 80px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F8F8F8;
+}
+
+body > .container {
+  display: flex;
+}
+
+body > .container .content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 0 0 80px;
+  background-color: #F8F8F8;
+}
+
+body > .container .content .part {
+  padding: 80px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+body > .container .content .part + .part {
+  padding-top: 0;
+}
+
+.button {
+  padding: 10px 30px;
+  border-radius: 200px;
+  background-color: #212121;
+  color: white;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding-top: 4px;
+  border-radius: 100%;
+  transition: 250ms ease-in-out;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.icon-button:hover,
+.icon-button:focus,
+.icon-button.active {
+  background-color: #EFEFEF;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+}
+
+.overview .item {
+  position: relative;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.02);
+  padding: 30px;
+  background: white;
+}
+
+.overview .item .title {
+  min-height: 60px;
+  margin-bottom: 20px;
+}
+
+.overview .item .text {
+  margin-bottom: 30px;
+  min-height: 35px;
+}
+
+.overview .item .progress {
+  border-radius: 20px;
+  height: 5px;
+  background-color: #EFEFEF;
+}
+
+.overview .item .progress .inner {
+  width: 30%;
+  border-radius: 20px;
+  height: 5px;
+}
+
+.overview .item .progress .inner.red {
+  background: #F73C2E;
+}
+
+.overview .item .progress .inner.orange {
+  background: #FFC400;
+}
+
+.overview .item .progress .inner.green {
+  background: #4DAD92;
+}
+
+.overview .item .controls {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: 250ms ease-in-out;
+}
+
+.overview .item .controls .control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 50%;
+  background-color: #1B182A;
+}
+
+.overview .item .controls .control p {
+  color: white;
+  margin-top: 15px;
+}
+
+.overview .item .controls .control:nth-child(2) {
+  background-color: #0F0D19;
+}
+
+.overview .item:hover .controls {
+  visibility: visible;
+  opacity: 1;
+}
+

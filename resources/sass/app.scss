@@ -1,0 +1,15 @@
+//settings
+@import "./settings/colors";
+@import "./settings/fonts";
+@import "./settings/mixins";
+@import "./settings/typography";
+@import "./settings/variables";
+
+//master
+@import "./master/header";
+@import "./master/sidebar";
+@import "./master/main";
+
+//components
+@import "./components/buttons";
+@import "./components/overview";

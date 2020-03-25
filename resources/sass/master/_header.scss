@@ -1,0 +1,52 @@
+header {
+    position: fixed;
+
+    display: flex;
+
+    width: 100%;
+    height: 80px;
+
+    background-color: white;
+       
+    .logo {
+        display: inline-block;
+        height: 80px;
+        width: 80px;
+        cursor: pointer;
+        
+        background-image: url("/img/logo.svg");
+        @include containBackground;
+        background-size: 30px;
+    }
+
+    .menu {
+        width: calc(100% - 80px);
+        border-left: 2px solid $grey-100;
+
+        .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 100%;
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 80px;
+
+            a {
+                font-size: 16px;
+
+                &:hover,
+                &.active
+                {
+                    opacity: .4;
+                }
+
+                & + a {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}
