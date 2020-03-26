@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', "PagesController@index");
 Route::get('/wijzigen', "PagesController@index");
-
 Route::get('/resultaten', "PagesController@resultaten");
-
 Route::get('/testen', "PagesController@testen");
-
 Route::get('/aanbevelingen', "PagesController@aanbevelingen");
-
-Route::get('/bestellingen', "PagesController@bestellingen");
 Route::get('/vragen', "PagesController@vragen");
+
+//Conversies
+Route::get('/bestellingen', "ConversiesController@bestellingen");
+Route::get('/aanmeldingen', "ConversiesController@aanmeldingen");
+
+//Elementen
+
+//Openingstijden
+Route::get('/openingstijden', "OpeningtimeController@index");
+Route::get('/openingstijden/edit', "OpeningtimeController@update");

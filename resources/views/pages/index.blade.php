@@ -3,8 +3,12 @@
 @section('content')
     <div class="part">
         <div class="container">
-            <h1>Welkom Zorba</h1>
-            <p>Kies een element om te wijzigen</p>
+            @if($welcome)
+                <h1>Welkom Zorba</h1>
+                <p>Kies een element om te wijzigen</p>
+            @else
+                <h1>Wijzigen</h1>
+            @endif
         </div>
     </div>
     <div class="part">

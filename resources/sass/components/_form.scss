@@ -1,0 +1,53 @@
+form {
+
+    label {
+        display: block;
+
+        & + input {
+            margin-top: 10px;
+        }
+    }
+
+    input[type="text"],
+    input[type="email"]
+    {
+        padding: 16px 15px;
+        width: 100%;
+        border: none;
+        box-shadow: $box-shadow-1;
+        outline: none;
+
+        font-weight: 500;
+
+        & + label {
+            margin-top: 30px;
+        }
+
+        &::placeholder {
+            color: $grey-300;
+        }
+    }
+
+    input[type="submit"] {
+        outline: none;
+        margin-top: 40px;
+    }
+
+    .form-control {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        label {
+            min-width: 100px;
+        }
+
+        input {
+            margin: 0;
+        }
+
+        &.form-control {
+            margin-top: 15px;
+        }
+    }
+}

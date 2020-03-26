@@ -58,7 +58,11 @@
         <div class="container">
             <div class="sidebar">
                 <span></span>
-                <h5 class="info">Kies een element</h5>
+                <h5 class="info">
+                    @if (session('message'))
+                        {{ session('message') }}
+                    @endif
+                </h5>
                 <div class="bottom">
                     <a href="/vragen" class="icon-button">
                         <h5>?</h5>

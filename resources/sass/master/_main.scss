@@ -31,12 +31,19 @@ body {
                     padding-top: 0;
                 }
 
+                &.small {
+                    .container {
+                        margin: auto;
+                        max-width: 700px;
+                    }
+                }
+
                 @media (max-width: $media-large-xl) {
-                    padding: 80px 40px 40px 40px;
+                    padding: 80px 40px 80px 40px;
                 }
 
                 @media (max-width: $media-medium) {
-                    padding: 50px 30px 30px 30px;
+                    padding: 50px 30px;
                 }
 
                 .container {

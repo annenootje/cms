@@ -54,6 +54,15 @@ h5 {
   font-weight: 600;
 }
 
+h6,
+label,
+input {
+  font-family: proxima-nova, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+}
+
 p {
   font-family: proxima-nova, sans-serif;
   font-size: 14px;
@@ -272,15 +281,20 @@ body > .container .content .part + .part {
   padding-top: 0;
 }
 
+body > .container .content .part.small .container {
+  margin: auto;
+  max-width: 700px;
+}
+
 @media (max-width: 1200px) {
   body > .container .content .part {
-    padding: 80px 40px 40px 40px;
+    padding: 80px 40px 80px 40px;
   }
 }
 
 @media (max-width: 800px) {
   body > .container .content .part {
-    padding: 50px 30px 30px 30px;
+    padding: 50px 30px;
   }
 }
 
@@ -289,10 +303,18 @@ body > .container .content .part .container + .container {
 }
 
 .button {
-  padding: 10px 30px;
+  display: inline-block;
+  padding: 12px 30px;
   border-radius: 200px;
+  border: none;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
   background-color: #212121;
   color: white;
+}
+
+.button:hover {
+  background-color: #4DAD92;
 }
 
 .icon-button {
@@ -478,5 +500,72 @@ body > .container .content .part .container + .container {
 .hamburger.active .inner span:nth-child(3) {
   transform: rotate(-45deg) translate(2px, -2px);
   width: 15px;
+}
+
+form label {
+  display: block;
+}
+
+form label + input {
+  margin-top: 10px;
+}
+
+form input[type=text],
+form input[type=email] {
+  padding: 16px 15px;
+  width: 100%;
+  border: none;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.02);
+  outline: none;
+  font-weight: 500;
+}
+
+form input[type=text] + label,
+form input[type=email] + label {
+  margin-top: 30px;
+}
+
+form input[type=text]::-webkit-input-placeholder, form input[type=email]::-webkit-input-placeholder {
+  color: #C6C6C6;
+}
+
+form input[type=text]::-moz-placeholder, form input[type=email]::-moz-placeholder {
+  color: #C6C6C6;
+}
+
+form input[type=text]:-ms-input-placeholder, form input[type=email]:-ms-input-placeholder {
+  color: #C6C6C6;
+}
+
+form input[type=text]::-ms-input-placeholder, form input[type=email]::-ms-input-placeholder {
+  color: #C6C6C6;
+}
+
+form input[type=text]::placeholder,
+form input[type=email]::placeholder {
+  color: #C6C6C6;
+}
+
+form input[type=submit] {
+  outline: none;
+  margin-top: 40px;
+}
+
+form .form-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form .form-control label {
+  min-width: 100px;
+}
+
+form .form-control input {
+  margin: 0;
+}
+
+form .form-control.form-control {
+  margin-top: 15px;
 }
 

@@ -7,21 +7,37 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index() {
-        return view('pages.index');
+        $message = "Kies een element";
+        $welcome = "Welkom Anne";
+        
+        return view('pages.index')
+            ->with([
+                "message", $message,
+                "welcome" => $welcome
+            ]);
     }
     public function vragen() {
-        return view('pages.vragen');
+        $message = "Zoek jouw vraag";
+
+        return view('pages.vragen')
+            ->with(["message", $message]);
     }
     public function resultaten() {
-        return view('pages.resultaten');
+        $message = "Bekijk jouw resultaten";
+
+        return view('pages.resultaten')
+            ->with(["message", $message]);
     }
     public function aanbevelingen() {
-        return view('pages.aanbevelingen');
-    }
-    public function bestellingen() {
-        return view('pages.bestellingen');
+        $message = "Optimaliseer jouw website";
+
+        return view('pages.aanbevelingen')
+            ->with(["message", $message]);
     }
     public function testen() {
-        return view('pages.testen');
+        $message = "Kies of maak een test";
+        
+        return view('pages.testen')
+            ->with(["message", $message]);
     }
 }
