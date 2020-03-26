@@ -9,22 +9,49 @@
 
 
     </head>
-    <body>
+    <body id="app">
         
         <header>
             <div
                 class="logo"
                 onclick='window.location = "/"'>
             </div>
+            <div
+                class="hamburger"
+                @click="toggleMenu"
+                :class="{active: menuIsActive}">
+                <div class="inner">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
             <div class="menu">
                 <div class="inner">
                     <nav>
-                        <a href="/wijzigen">Wijzigen</a>
-                        <a href="/verbeteren">Verbeteren</a>
-                        <a href="/resultaten">Resultaten</a>
-                        <a href="/bestellingen">Bestellingen</a>
+                        <div class="item">
+                            <a href="/wijzigen">Wijzigen</a>
+                        </div>
+                        <div class="item -has-submenu">
+                            <a>Verbeteren</a>
+                            <div class="submenu">
+                                <a href="/aanbevelingen">Aanbevelingen</a>
+                                <a href="/testen">Testen</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="/resultaten">Resultaten</a>
+                        </div>
+                        <div class="item">
+                            <a href="/bestellingen">Bestellingen</a>
+                        </div>
                     </nav>
-                    <h5>zorbadefiek.info</h5>
+                    <div class="item -has-submenu">
+                        <a>zorbadefiek.info</a>
+                        <div class="submenu">
+                            <a href="/uitloggen">Uitloggen</a>
+                        </div>
+                    </h5>
                 </div>
             </div>
         </header>
@@ -42,5 +69,10 @@
                 @yield('content')
             </div>
         </div>
+        <div class="mobileMenu">
+            
+        </div>
+        <script src="/js/app.js"></script>
+        <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     </body>
 </html>

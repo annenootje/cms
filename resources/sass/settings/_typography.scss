@@ -34,9 +34,12 @@ h3 {
 }
 
 h4 {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: proxima-nova, sans-serif;
     font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
     line-height: 22px;
+    color: $grey-300;
 }
 
 h5 {
@@ -47,8 +50,8 @@ h5 {
 }
 
 p {
-    font-size: 14px;
     font-family: proxima-nova, sans-serif;
+    font-size: 14px;
     font-weight: 600;
     font-style: normal;
     color: $grey-300;
