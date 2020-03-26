@@ -23,3 +23,4 @@ Route::get('/testen', "PagesController@testen");
 Route::get('/aanbevelingen', "PagesController@aanbevelingen");
 
 Route::get('/bestellingen', "PagesController@bestellingen");
+Route::get('/vragen', "PagesController@vragen");

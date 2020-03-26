@@ -1,11 +1,15 @@
 .hamburger {
-    display: inline-flex;
+    display: none;
     align-items: center;
     justify-content: center;
 
     width: 80px;
     height: 80px;
     border-left: 2px solid $grey-100;
+
+    @media (max-width: $media-medium) {
+        display: inline-flex;
+    }
     
     .inner {
         position: relative;

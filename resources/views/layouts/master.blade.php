@@ -60,9 +60,9 @@
                 <span></span>
                 <h5 class="info">Kies een element</h5>
                 <div class="bottom">
-                    <div class="icon-button">
+                    <a href="/vragen" class="icon-button">
                         <h5>?</h5>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="content">

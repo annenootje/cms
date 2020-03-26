@@ -57,7 +57,7 @@ h5 {
 p {
   font-family: proxima-nova, sans-serif;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   color: #C6C6C6;
 }
@@ -272,7 +272,7 @@ body > .container .content .part + .part {
   padding-top: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   body > .container .content .part {
     padding: 80px 40px 40px 40px;
   }
@@ -296,7 +296,7 @@ body > .container .content .part .container + .container {
 }
 
 .icon-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -419,12 +419,18 @@ body > .container .content .part .container + .container {
 }
 
 .hamburger {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 80px;
   height: 80px;
   border-left: 2px solid #F8F8F8;
+}
+
+@media (max-width: 800px) {
+  .hamburger {
+    display: inline-flex;
+  }
 }
 
 .hamburger .inner {
