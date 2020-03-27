@@ -3,11 +3,20 @@
 @section('content')
     <div class="part small">
         <div class="container">
+            @if ($status)
+                <p class="green">
+                    <img src="/img/icons/check.svg" alt="">
+                    De wijzigingen zijn opgeslagen
+                </p>
+            @endif
+            <br><br>
             <h1>Openingstijden</h1>
+ 
         </div>
         <div class="container">
-            <form action="/openingstijden/edit">
+            <form method="POST" action="/openingstijden/edit">
                 @csrf
+                {{ method_field('PATCH') }}
                 <div class="form-control">
                     <label for="monday">
                         Maandag
@@ -15,7 +24,7 @@
                     <input
                         id="monday"
                         type="text"
-                        value="09:00 - 17:00"
+                        value='{{ $openingtimes[0]->value }}'
                         name="monday"
                     >
                 </div>
@@ -24,7 +33,7 @@
                     <input
                         id="tuesday"
                         type="text"
-                        value="09:00 - 17:00"
+                        value='{{ $openingtimes[1]->value }}'
                         name="tuesday"
                     >
                 </div>
@@ -33,7 +42,7 @@
                     <input
                         id="wednesday"
                         type="text"
-                        value="09:00 - 17:00"
+                        value='{{ $openingtimes[2]->value }}'
                         name="wednesday"
                     >
                 </div>
@@ -42,7 +51,7 @@
                     <input
                         id="thursday"
                         type="text"
-                        value="09:00 - 17:00"
+                        value='{{ $openingtimes[3]->value }}'
                         name="thursday"
                     >
                 </div>
@@ -51,7 +60,7 @@
                     <input
                         id="friday"
                         type="text"
-                        value="09:00 - 17:00"
+                        value='{{ $openingtimes[4]->value }}'
                         name="friday"
                     >
                 </div>
@@ -60,7 +69,7 @@
                     <input
                         id="saturday"
                         type="text"
-                        value="Gesloten"
+                        value='{{ $openingtimes[5]->value }}'
                         name="saturday"
                     >
                 </div>
@@ -69,7 +78,7 @@
                     <input
                         id="sunday"
                         type="text"
-                        value="Gesloten"
+                        value='{{ $openingtimes[6]->value }}'
                         name="sunday"
                     >
                 </div>

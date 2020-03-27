@@ -28,4 +28,4 @@ Route::get('/aanmeldingen', "ConversiesController@aanmeldingen");
 
 //Openingstijden
 Route::get('/openingstijden', "OpeningtimeController@index");
-Route::get('/openingstijden/edit', "OpeningtimeController@update");
+Route::patch('/openingstijden/edit', "OpeningtimeController@update");

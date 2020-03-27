@@ -3,12 +3,8 @@
 @section('content')
     <div class="part">
         <div class="container">
-            @if($welcome)
-                <h1>Welkom Zorba</h1>
-                <p>Kies een element om te wijzigen</p>
-            @else
-                <h1>Wijzigen</h1>
-            @endif
+            <h1>Welkom Zorba</h1>
+            <p>Kies een element om te wijzigen</p>
         </div>
     </div>
     <div class="part">
@@ -37,23 +33,27 @@
                 </div>
                 <div class="item">
                     <div>
-                        <h2 class="title">Algemene gegevens</h2>
+                        <h2 class="title">Openingstijden</h2>
                         <p class="text">
-                            Titel, subtitel en home afbeelding
+                            Wijzig de openingstijden
                         </p>
                     </div>
                     <div class="progress">
-                        <div class="inner red"></div>
+                        <div
+                            class="inner green"
+                            style="width: 100%;">
+                        </div>
                     </div>
                     <div class="controls">
-                        <div class="control">
-                            <img src="/img/icons/edit-white.svg" alt="">
+                        <a
+                            class="control"
+                            href="/openingstijden"
+                        >
+                            <img
+                                src="/img/icons/edit-white.svg"
+                                alt="">
                             <p>Wijzigen</p>
-                        </div>
-                        <div class="control">
-                            <img src="/img/icons/add-white.svg" alt="">
-                            <p>Toevoegen</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="item">

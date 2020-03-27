@@ -71,6 +71,14 @@ p {
   color: #C6C6C6;
 }
 
+p.green {
+  color: #4DAD92;
+}
+
+p.green img {
+  margin-right: 7px;
+}
+
 a {
   font-size: 14px;
   font-family: proxima-nova, sans-serif;
@@ -422,7 +430,7 @@ body > .container .content .part .container + .container {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
   background-color: #1B182A;
 }
 

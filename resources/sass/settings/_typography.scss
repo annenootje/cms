@@ -65,6 +65,14 @@ p {
     font-weight: 500;
     font-style: normal;
     color: $grey-300;
+
+    &.green {
+        color: $green;
+
+        img {
+            margin-right: 7px;
+        }
+    }
 }
 
 a {
