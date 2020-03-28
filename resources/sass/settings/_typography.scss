@@ -28,9 +28,10 @@ h2 {
 }
 
 h3 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
+    font-family: proxima-nova, sans-serif;
+    font-size: 18px;
     line-height: 24px;
+    font-weight: 600;
 }
 
 h4 {
@@ -51,7 +52,8 @@ h5 {
 
 h6,
 label,
-input
+input,
+textarea
 {
     font-family: proxima-nova, sans-serif;
     font-size: 14px;
@@ -73,14 +75,46 @@ p {
             margin-right: 7px;
         }
     }
+    &.black {
+        color: $black;
+    }
+
+    &.red {
+        color: $red;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.right {
+        text-align: center;
+    }
 }
 
 a {
     font-size: 14px;
     font-family: proxima-nova, sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
     text-decoration: none;
 
-    transition: opacity 250ms ease-in-out;
+    transition: color 250ms ease-in-out;
+
+    &.grey {
+        color: $grey-300;
+
+        &:hover {
+            color: $green;
+            opacity: 1;
+        }
+    }
+
+    &.green {
+        color: $green;
+
+        &:hover {
+            color: $black;
+        }
+    }
 }

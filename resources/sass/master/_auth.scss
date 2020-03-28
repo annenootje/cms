@@ -1,0 +1,53 @@
+.login-container {
+    display: flex;
+
+    max-height: 100vh;
+    overflow: hidden;
+   
+    .image {
+        width: 40%;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    form {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        width: 60%;
+
+        &.register {
+            align-items: flex-start;
+        
+            max-width: 300px;
+            margin: auto;
+        }
+
+        .login-inputs {
+            display: flex;
+
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .register-question {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+
+        text-align: center;
+        
+        display: inline-block;
+
+        margin: auto;
+    }
+}

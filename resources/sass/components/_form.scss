@@ -3,21 +3,34 @@ form {
     label {
         display: block;
 
-        & + input {
+        & + input,
+        & + textarea
+        {
             margin-top: 10px;
         }
     }
 
     input[type="text"],
-    input[type="email"]
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    textarea
     {
         padding: 16px 15px;
         width: 100%;
         border: none;
         box-shadow: $box-shadow-1;
         outline: none;
+        -webkit-appearance: none;
 
         font-weight: 500;
+        font-size: 14px;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
         & + label {
             margin-top: 30px;
@@ -26,11 +39,45 @@ form {
         &::placeholder {
             color: $grey-300;
         }
+
+        &.cirkel {
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+
+            box-shadow: $box-shadow-2;
+            transition: box-shadow $transition;
+
+            font-weight: 600;
+            text-align: center;
+
+            &.cirkel {
+                margin-left: 10px;
+            }
+        }
     }
 
     input[type="submit"] {
         outline: none;
         margin-top: 40px;
+
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+    }
+
+    textarea {
+        resize: none;
+        height: 100px;
+
+        &.large {
+            height: 350px;
+        }
     }
 
     .form-control {

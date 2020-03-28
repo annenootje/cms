@@ -33,9 +33,10 @@ h2 {
 }
 
 h3 {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
+  font-family: proxima-nova, sans-serif;
+  font-size: 18px;
   line-height: 24px;
+  font-weight: 600;
 }
 
 h4 {
@@ -56,7 +57,8 @@ h5 {
 
 h6,
 label,
-input {
+input,
+textarea {
   font-family: proxima-nova, sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -79,13 +81,46 @@ p.green img {
   margin-right: 7px;
 }
 
+p.black {
+  color: #212121;
+}
+
+p.red {
+  color: #F73C2E;
+}
+
+p.center {
+  text-align: center;
+}
+
+p.right {
+  text-align: center;
+}
+
 a {
   font-size: 14px;
   font-family: proxima-nova, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   text-decoration: none;
-  transition: opacity 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+a.grey {
+  color: #C6C6C6;
+}
+
+a.grey:hover {
+  color: #4DAD92;
+  opacity: 1;
+}
+
+a.green {
+  color: #4DAD92;
+}
+
+a.green:hover {
+  color: #212121;
 }
 
 header {
@@ -162,6 +197,7 @@ header .menu .inner .item {
 
 header .menu .inner .item a {
   font-size: 16px;
+  font-weight: 600;
 }
 
 header .menu .inner .item a:hover,
@@ -262,11 +298,11 @@ body {
   background-color: #F8F8F8;
 }
 
-body > .container {
+body main {
   display: flex;
 }
 
-body > .container .content {
+body main .content {
   width: 100%;
   min-height: 100vh;
   padding: 80px 0 0 80px;
@@ -274,40 +310,87 @@ body > .container .content {
 }
 
 @media (max-width: 680px) {
-  body > .container .content {
+  body main .content {
     padding: 80px 0 0 0;
   }
 }
 
-body > .container .content .part {
+body main .content .part {
   padding: 80px;
   max-width: 1260px;
   margin: auto;
 }
 
-body > .container .content .part + .part {
+body main .content .part + .part {
   padding-top: 0;
 }
 
-body > .container .content .part.small .container {
+body main .content .part.small .container {
   margin: auto;
   max-width: 700px;
 }
 
 @media (max-width: 1200px) {
-  body > .container .content .part {
+  body main .content .part {
     padding: 80px 40px 80px 40px;
   }
 }
 
 @media (max-width: 800px) {
-  body > .container .content .part {
+  body main .content .part {
     padding: 50px 30px;
   }
 }
 
-body > .container .content .part .container + .container {
+body main .content .part .container + .container {
   margin-top: 40px;
+}
+
+.login-container {
+  display: flex;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.login-container .image {
+  width: 40%;
+  overflow: hidden;
+}
+
+.login-container .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.login-container form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
+.login-container form.register {
+  align-items: flex-start;
+  max-width: 300px;
+  margin: auto;
+}
+
+.login-container form .login-inputs {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.login-container .register-question {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
 }
 
 .button {
@@ -323,6 +406,12 @@ body > .container .content .part .container + .container {
 
 .button:hover {
   background-color: #4DAD92;
+}
+
+.button.hide {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
 }
 
 .icon-button {
@@ -448,6 +537,29 @@ body > .container .content .part .container + .container {
   opacity: 1;
 }
 
+.overview.list {
+  display: block;
+}
+
+.overview.list .item {
+  flex-direction: row;
+  padding: 20px 30px;
+}
+
+.overview.list .item .title {
+  min-height: unset;
+  margin-bottom: 5px;
+}
+
+.overview.list .item .text {
+  min-height: unset;
+  margin: 0;
+}
+
+.overview.list .item .controls {
+  position: static;
+}
+
 .hamburger {
   display: none;
   align-items: center;
@@ -514,49 +626,115 @@ form label {
   display: block;
 }
 
-form label + input {
+form label + input,
+form label + textarea {
   margin-top: 10px;
 }
 
 form input[type=text],
-form input[type=email] {
+form input[type=email],
+form input[type=number],
+form input[type=password],
+form textarea {
   padding: 16px 15px;
   width: 100%;
   border: none;
   box-shadow: 0 2px 30px rgba(0, 0, 0, 0.02);
   outline: none;
+  -webkit-appearance: none;
   font-weight: 500;
+  font-size: 14px;
+}
+
+form input[type=text]::-webkit-inner-spin-button,
+form input[type=text]::-webkit-outer-spin-button,
+form input[type=email]::-webkit-inner-spin-button,
+form input[type=email]::-webkit-outer-spin-button,
+form input[type=number]::-webkit-inner-spin-button,
+form input[type=number]::-webkit-outer-spin-button,
+form input[type=password]::-webkit-inner-spin-button,
+form input[type=password]::-webkit-outer-spin-button,
+form textarea::-webkit-inner-spin-button,
+form textarea::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 form input[type=text] + label,
-form input[type=email] + label {
+form input[type=email] + label,
+form input[type=number] + label,
+form input[type=password] + label,
+form textarea + label {
   margin-top: 30px;
 }
 
-form input[type=text]::-webkit-input-placeholder, form input[type=email]::-webkit-input-placeholder {
+form input[type=text]::-webkit-input-placeholder, form input[type=email]::-webkit-input-placeholder, form input[type=number]::-webkit-input-placeholder, form input[type=password]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder {
   color: #C6C6C6;
 }
 
-form input[type=text]::-moz-placeholder, form input[type=email]::-moz-placeholder {
+form input[type=text]::-moz-placeholder, form input[type=email]::-moz-placeholder, form input[type=number]::-moz-placeholder, form input[type=password]::-moz-placeholder, form textarea::-moz-placeholder {
   color: #C6C6C6;
 }
 
-form input[type=text]:-ms-input-placeholder, form input[type=email]:-ms-input-placeholder {
+form input[type=text]:-ms-input-placeholder, form input[type=email]:-ms-input-placeholder, form input[type=number]:-ms-input-placeholder, form input[type=password]:-ms-input-placeholder, form textarea:-ms-input-placeholder {
   color: #C6C6C6;
 }
 
-form input[type=text]::-ms-input-placeholder, form input[type=email]::-ms-input-placeholder {
+form input[type=text]::-ms-input-placeholder, form input[type=email]::-ms-input-placeholder, form input[type=number]::-ms-input-placeholder, form input[type=password]::-ms-input-placeholder, form textarea::-ms-input-placeholder {
   color: #C6C6C6;
 }
 
 form input[type=text]::placeholder,
-form input[type=email]::placeholder {
+form input[type=email]::placeholder,
+form input[type=number]::placeholder,
+form input[type=password]::placeholder,
+form textarea::placeholder {
   color: #C6C6C6;
+}
+
+form input[type=text].cirkel,
+form input[type=email].cirkel,
+form input[type=number].cirkel,
+form input[type=password].cirkel,
+form textarea.cirkel {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 250ms ease-in-out;
+  font-weight: 600;
+  text-align: center;
+}
+
+form input[type=text].cirkel.cirkel,
+form input[type=email].cirkel.cirkel,
+form input[type=number].cirkel.cirkel,
+form input[type=password].cirkel.cirkel,
+form textarea.cirkel.cirkel {
+  margin-left: 10px;
 }
 
 form input[type=submit] {
   outline: none;
   margin-top: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+
+form input[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+}
+
+form textarea {
+  resize: none;
+  height: 100px;
+}
+
+form textarea.large {
+  height: 350px;
 }
 
 form .form-control {
@@ -575,5 +753,70 @@ form .form-control input {
 
 form .form-control.form-control {
   margin-top: 15px;
+}
+
+.question {
+  position: relative;
+  padding: 21px 60px 21px 20px;
+  margin-top: 20px;
+  max-height: 59px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: white;
+}
+
+.question + .question {
+  margin-top: 10px;
+}
+
+.question .title {
+  margin-bottom: 20px;
+}
+
+.question .icon {
+  position: absolute;
+  right: 20px;
+  top: 23px;
+  height: 13px;
+  width: 13px;
+}
+
+.question .icon span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  bottom: 0;
+  display: inline-block;
+  transition: 250ms ease-in-out;
+  margin: auto;
+  width: 13px;
+  height: 2px;
+  border-radius: 10px;
+  background-color: #212121;
+}
+
+.question .icon span:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.question p {
+  cursor: auto;
+}
+
+.question.active {
+  max-height: unset;
+}
+
+.question.active span:nth-child(2) {
+  width: 0;
+}
+
+.sub-menu {
+  display: flex;
+}
+
+.sub-menu .item + .item {
+  margin-left: 15px;
 }
 

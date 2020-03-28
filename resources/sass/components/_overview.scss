@@ -104,4 +104,27 @@
             }
         }
     }
+
+    &.list {
+        display: block;
+
+        .item {
+            flex-direction: row;
+
+            padding: 20px 30px;
+            
+
+            .title {
+                min-height: unset;
+                margin-bottom: 5px;
+            }
+            .text {
+                min-height: unset;
+                margin: 0;
+            } 
+            .controls {
+                position: static;
+            }
+        }
+    }
 }

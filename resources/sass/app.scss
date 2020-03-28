@@ -9,9 +9,12 @@
 @import "./master/header";
 @import "./master/sidebar";
 @import "./master/main";
+@import "./master/auth";
 
 //components
 @import "./components/buttons";
 @import "./components/overview";
 @import "./components/hamburger";
 @import "./components/form";
+@import "./components/question";
+@import "./components/sub-menu";

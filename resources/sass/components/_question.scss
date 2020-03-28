@@ -1,0 +1,66 @@
+.question {
+    position: relative;
+
+    padding: 21px 60px 21px 20px;
+    margin-top: 20px;   
+    max-height: 59px;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    background-color: white;
+
+    & + .question {
+        margin-top: 10px;
+    }
+    
+    .title {
+        margin-bottom: 20px;
+    }
+
+    .icon {
+        position: absolute;
+        right: 20px;
+        top: 23px;
+
+        height: 13px;
+        width: 13px;
+
+        span {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            bottom: 0;
+
+            display: inline-block;
+
+            transition: $transition;
+
+            margin: auto;
+            width: 13px;
+            height: 2px;
+            border-radius: 10px;
+
+            background-color: $black;
+
+            &:nth-child(2) {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    p {
+        cursor: auto;
+    }
+
+    &.active {
+        max-height: unset;
+
+        span {
+            &:nth-child(2) {
+                width: 0;
+            }
+        }
+    }
+}

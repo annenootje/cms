@@ -8,8 +8,8 @@
                     <img src="/img/icons/check.svg" alt="">
                     De wijzigingen zijn opgeslagen
                 </p>
+                <br><br>
             @endif
-            <br><br>
             <h1>Openingstijden</h1>
  
         </div>
@@ -82,7 +82,7 @@
                         name="sunday"
                     >
                 </div>
-                <input type="submit" class="button">
+                <input type="submit" class="button" value="Wijzigen">
             </form>
         </div>
     </div>

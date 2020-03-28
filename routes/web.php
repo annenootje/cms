@@ -2,30 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//Auth
+Auth::routes();
+Route::get('/logout', 'PagesController@logout');
 
-Route::get('/', "PagesController@index");
-Route::get('/wijzigen', "PagesController@index");
-Route::get('/resultaten', "PagesController@resultaten");
-Route::get('/testen', "PagesController@testen");
-Route::get('/aanbevelingen', "PagesController@aanbevelingen");
-Route::get('/vragen', "PagesController@vragen");
+//Hoofdpagina's
+Route::get('/', "PagesController@index")->middleware('auth');
+Route::get('/wijzigen', "PagesController@index")->middleware('auth');
+Route::get('/resultaten', "PagesController@resultaten")->middleware('auth');
+Route::get('/testen', "PagesController@testen")->middleware('auth');
+Route::get('/aanbevelingen', "PagesController@aanbevelingen")->middleware('auth');
+Route::get('/vragen', "PagesController@vragen")->middleware('auth');
+Route::get('/home', 'PagesController@index')->middleware('auth');
 
 //Conversies
-Route::get('/bestellingen', "ConversiesController@bestellingen");
-Route::get('/aanmeldingen', "ConversiesController@aanmeldingen");
-
-//Elementen
+Route::get('/bestellingen', "ConversiesController@bestellingen")->middleware('auth');
+Route::get('/aanmeldingen', "ConversiesController@aanmeldingen")->middleware('auth');
 
 //Openingstijden
-Route::get('/openingstijden', "OpeningtimeController@index");
-Route::patch('/openingstijden/edit', "OpeningtimeController@update");
+Route::get('/wijzigen/openingstijden', "OpeningtimeController@index")->middleware('auth');
+Route::patch('/wijzigen/openingstijden/edit', "OpeningtimeController@update")->middleware('auth');
+
+//Blogs
+Route::get('/wijzigen/blogs', "BlogsController@overview")->middleware('auth');
+Route::get('/wijzigen/blogs/edit', "BlogsController@edit")->middleware('auth');
+Route::get('/wijzigen/blogs/new', "BlogsController@new")->middleware('auth');
+Route::patch('/wijzigen/blogs/edit', "BlogsController@update")->middleware('auth');
