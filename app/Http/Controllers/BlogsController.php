@@ -15,9 +15,12 @@ class BlogsController extends Controller
             compact("blogs"));
     }
 
-    public function edit() {
+    public function edit($id) {
 
-        return view("/elements/blogs/edit");
+        $blog = Blog::find($id);
+
+        return view("/elements/blogs/edit",
+            compact('blog'));
     }
 
     public function new() {
@@ -25,15 +28,47 @@ class BlogsController extends Controller
         return view("/elements/blogs/new");
     }
 
-    public function update() {
+    public function store() {
 
-        $id = 1;
-        $monday = Blog::find($id);
-        $monday->value = request('monday');
-        $monday->save();
+        $blog = new Blog;
+        $blog->title = request("title");
+        $blog->subtitle = request("subtitle");
+        $blog->preview = request("preview");
+        $blog->image = request("image");
+        $blog->content = request("content");
+        $blog->metatitle = request("metatitle");
+        $blog->metakeywords = request("metakeywords");
+        $blog->metadescription = request("metadescription");
+        $blog->save();
+
+        $blogs = Blog::all();
 
         return view("/elements/blogs/overview",
-            compact("openingtimes", "status"));
+            compact("blogs"));
+    }
+
+    public function update($id) {
+
+        $blog = Blog::find($id);
+        $blog->title = request("title");
+        $blog->subtitle = request("subtitle");
+        $blog->preview = request("preview");
+        $blog->image = request("image");
+        $blog->content = request("content");
+        $blog->metatitle = request("metatitle");
+        $blog->metakeywords = request("metakeywords");
+        $blog->metadescription = request("metadescription");
+        $blog->save();
+
+        return redirect()->action('BlogsController@overview');
+
+    }
+
+    public function delete($id) {
         
+        $blog = Blog::find($id);
+        $blog->delete();
+    
+        return redirect()->action('BlogsController@overview');
     }
 }

@@ -16,9 +16,19 @@
                                 <p class="text">{{ $blog->created_at->format("d-m-Y") }}</p>
                             </div>
                             <div class="controls">
-                                <div class="control"></div>
-                                <div class="control"></div>
-                                <div class="control"></div>
+                                <div onclick="location.href = '/wijzigen/blogs/{{$blog->id}}/delete'" class="control">
+                                    <img src="/img/icons/bin-red.svg" alt="">
+                                </div>
+                                <div class="control">
+                                    <img
+                                        src="/img/icons/eye-green.svg"
+                                        alt="">
+                                </div>
+                                <div onclick="location.href = '/wijzigen/blogs/{{$blog->id}}/edit'" class="control">
+                                    <img
+                                        src="/img/icons/edit-black.svg"
+                                        alt="">
+                                </div>
                             </div>  
                         </div>
                     @endforeach

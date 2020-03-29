@@ -36,7 +36,7 @@
                         </a>
                         <a
                             class="control"
-                            href="/wijzigen/blogs/edit"
+                            href="/wijzigen/blogs"
                         >
                             <img
                                 src="/img/icons/edit-white.svg"

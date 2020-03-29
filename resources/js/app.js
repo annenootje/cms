@@ -5,9 +5,47 @@
  */
 
 require('./bootstrap');
-require('./objects/tab-menu');
+
+import Tabmenu from './objects/tab-menu';
+import EditorJS from '@editorjs/editorjs'; 
+import Header from '@editorjs/header'; 
+import List from '@editorjs/list';
+
+const editor = new EditorJS({ 
+        /** 
+     * Id of Element that should contain the Editor 
+     */ 
+    holderId: 'editor', 
+    
+    /** 
+     * Available Tools list. 
+     * Pass Tool's class or Settings object for each Tool you want to use 
+     */ 
+    tools: { 
+      header: Header, 
+      list: List 
+    }, 
+
+    onReady: () => {
+        console.log('Editor.js is ready to work!')
+     }
+
+
+  })
 
 window.Vue = require('vue');
+
+
+$(() => {
+    const tabmenus = document.querySelectorAll('.tab-menu');
+
+    if (tabmenus.length > 0) {
+        tabmenus.forEach((tabmenu) => {
+            const object = new Tabmenu(tabmenu);
+            object.init();
+        });
+    }
+});
 
 const app = new Vue({
     el: '#app',

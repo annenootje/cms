@@ -124,6 +124,51 @@
             } 
             .controls {
                 position: static;
+
+                visibility: visible;
+                opacity: 1;
+
+                .control {
+                    position: relative;
+
+                    background: white;
+                    margin-left: 5px;
+
+                    width: 50px;
+                    height: 50px;
+
+                    img {
+                        z-index: 1;
+                    }
+
+                    &::before {
+                        content: '';
+
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        transition: $transition;
+
+                        border-radius: 100%;
+                        z-index: 0;
+                        opacity: 0;
+
+                        background-color: $grey-100;
+                    }
+
+                    &:hover {
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            & + .item  {
+                margin-top: 15px;
             }
         }
     }
