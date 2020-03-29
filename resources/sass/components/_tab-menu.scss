@@ -1,0 +1,23 @@
+.tab {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.sub-menu {
+
+    .item {
+        cursor: pointer;
+        transition: $transition;
+
+        color: $grey-300;
+
+        &.active,
+        &:hover
+        {
+            color: $green;
+        }
+    }
+}

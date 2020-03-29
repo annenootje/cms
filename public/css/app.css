@@ -820,3 +820,22 @@ form .form-control.form-control {
   margin-left: 15px;
 }
 
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.sub-menu .item {
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+  color: #C6C6C6;
+}
+
+.sub-menu .item.active,
+.sub-menu .item:hover {
+  color: #4DAD92;
+}
+

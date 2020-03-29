@@ -6,15 +6,15 @@
             <h1>Blog toevoegen</h1>
         </div>   
         <nav class="container sub-menu">
-            <h4 class="item">Algemeen</h4>
-            <h4 class="item">Inhoud</h4>
-            <h4 class="item">SEO</h4>
+            <h5 class="item active">Algemeen</h5>
+            <h5 class="item">Inhoud</h5>
+            <h5 class="item">SEO</h5>
         </nav>    
         <div class="container">
 
             <form method="POST" action="wijzigen/blog">
 
-                <div class="tab-1">
+                <div class="tab tab-1 active">
                     <label for="title">Titel</label>
                     <input type="text" id="title" name="title">
 
@@ -29,7 +29,7 @@
                     </textarea>
                 </div>
 
-                <div class="tab-2">
+                <div class="tab tab-2">
                     <textarea class="large" name="content"></textarea>
                 </div>
 
