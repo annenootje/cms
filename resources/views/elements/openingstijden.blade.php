@@ -14,7 +14,7 @@
  
         </div>
         <div class="container">
-            <form method="POST" action="/openingstijden/edit">
+            <form method="POST" action="/wijzigen/openingstijden/edit">
                 @csrf
                 {{ method_field('PATCH') }}
                 <div class="form-control">

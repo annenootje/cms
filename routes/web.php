@@ -47,4 +47,6 @@ Route::get('/wijzigen/blogs/{id}/edit', 'BlogsController@edit')
       ->middleware('auth');
 Route::get('/wijzigen/blogs/{id}/delete', 'BlogsController@delete')
       ->middleware('auth');
+Route::get('/wijzigen/blogs/{id}/toggle', 'BlogsController@toggle')
+      ->middleware('auth');
       

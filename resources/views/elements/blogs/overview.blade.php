@@ -12,18 +12,32 @@
                     @foreach($blogs as $blog)
                         <div class="item">
                             <div>
-                                <h3 class="title">{{ $blog->title }}</h3>
-                                <p class="text">{{ $blog->created_at->format("d-m-Y") }}</p>
+                                <h3 class="title">
+                                    {{ $blog->title }}
+                                </h3>
+                                <p class="text">
+                                    {{ $blog->created_at->format("d-m-Y") }}
+                                </p>
                             </div>
                             <div class="controls">
-                                <div onclick="location.href = '/wijzigen/blogs/{{$blog->id}}/delete'" class="control">
+                                <div class="control delete"
+                                    data-number="{{$blog->id}}"
+                                    data-name="{{$blog->title}}">
                                     <img src="/img/icons/bin-red.svg" alt="">
                                 </div>
-                                <div class="control">
-                                    <img
-                                        src="/img/icons/eye-green.svg"
-                                        alt="">
-                                </div>
+                                <a
+                                    href="/wijzigen/blogs/{{$blog->id}}/toggle"
+                                    class="control">
+                                    @if($blog->visible)
+                                        <img
+                                            src="/img/icons/eye-green.svg"
+                                            alt="">
+                                    @else
+                                        <img
+                                            src="/img/icons/eye-red.svg"
+                                            alt="">
+                                    @endif
+                                </a>
                                 <div onclick="location.href = '/wijzigen/blogs/{{$blog->id}}/edit'" class="control">
                                     <img
                                         src="/img/icons/edit-black.svg"
@@ -33,13 +47,12 @@
                         </div>
                     @endforeach
                 @else
-                    <p>Nog geen blogs.
-                    <a href="/blogs/new">
+                    <a href="/wijzigen/blogs/new">
                         Blog toevoegen?
                     </a>
-                    </p>
                 @endif
             </div>
         </div>
     </div>
+    @include('/widgets/modal')
 @endsection

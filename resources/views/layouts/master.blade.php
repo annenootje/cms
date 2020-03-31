@@ -13,6 +13,11 @@
             <div
                 class="logo"
                 onclick='window.location = "/wijzigen"'>
+                <div class="return">
+                    <div class="inner" onclick="window.history.back()">
+                        <img src="/img/icons/return.svg" alt="">
+                    </div>
+                </div>
             </div>
             <div
                 class="hamburger"
@@ -94,6 +99,8 @@
         <div class="mobileMenu">
             
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="/js/app.js"></script>
         <script src="https://npmcdn.com/vue/dist/vue.js"></script>

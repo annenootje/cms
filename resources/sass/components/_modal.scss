@@ -1,0 +1,122 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    transition: $transition;
+
+    background: rgba(0,0,0,0.5);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .inner {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        height: fit-content;
+        margin: auto;
+        width: 500px;
+        padding: 50px;
+        border-radius: 2px;
+        box-shadow: $box-shadow-3;
+
+        background: white;
+
+        .controls {
+            display: flex;
+
+            .control {
+                display: flex;
+                align-items: center;
+
+                font-weight: 600;
+
+                & + .control {
+                    margin-left: 20px;
+                }
+
+                svg {
+                    margin-right: 10px;
+                    overflow: visible;
+
+                    #Path_110_1_ {
+                        transition: $transition;
+                    }
+                }
+
+                &:hover {
+                    svg {
+                        #Path_110_1_ {
+                            transform: rotate(45deg) translate(-3px, -8px);
+                        }
+                    }
+                }
+            }
+        }
+
+        h2 {
+            margin-bottom: 50px;
+
+            font-size: 22px;
+            line-height: 28px;
+            font-weight: 500;
+
+            max-width: calc(100% - 50px);
+        }
+
+        .cross {
+            position: absolute;
+            right: 35px;
+            top: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: $transition;
+
+            background-color: white;
+
+            &:hover {
+                background-color: $grey-100;
+            }
+
+            span {
+                display: inline-block;   
+                
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+
+                margin: auto;
+                width: 20px;
+                height: 2px;
+                border-radius: 5px;
+                transform: rotate(45deg);
+
+                background: $black;
+                
+                &:nth-child(2) {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}

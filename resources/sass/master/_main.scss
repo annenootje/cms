@@ -51,6 +51,12 @@ body {
                     & + .container {
                         margin-top: 40px;
                     }
+
+                    &.head {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-end;
+                    }
                 }
             }
         }

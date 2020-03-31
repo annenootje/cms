@@ -29,6 +29,27 @@ header {
             background-size: 130px;
             margin-left: 30px;
         }
+
+        .return {
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+            background-color: white;
+
+            .inner {
+                width: 50px;
+                height: 50px;
+
+                @include icon-cirkel;
+            }
+
+            &.active {
+                display: block;
+            }
+        }
     }
 
     .menu {
@@ -68,7 +89,7 @@ header {
                     &:hover,
                     &.active
                     {
-                        opacity: .4;
+                        color: $grey-300;
                     }
                 }
     
@@ -116,7 +137,7 @@ header {
 
                     &:hover {
                         > a {
-                            opacity: 1;
+                            color: $black;
                         }
 
                         .submenu {

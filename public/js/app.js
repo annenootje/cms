@@ -52012,12 +52012,20 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _objects_tab_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./objects/tab-menu */ "./resources/js/objects/tab-menu.js");
-/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editor.js");
-/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/bundle.js");
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_editorjs_header__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/list */ "./node_modules/@editorjs/list/dist/bundle.js");
-/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editorjs_list__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _objects_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./objects/modal */ "./resources/js/objects/modal.js");
+/* harmony import */ var _objects_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./objects/progress */ "./resources/js/objects/progress.js");
+/* harmony import */ var _charts_line_graphic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./charts/line-graphic */ "./resources/js/charts/line-graphic.js");
+/* harmony import */ var _charts_line_graphic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_charts_line_graphic__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _charts_bar_graphic_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./charts/bar-graphic-system */ "./resources/js/charts/bar-graphic-system.js");
+/* harmony import */ var _charts_bar_graphic_system__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_charts_bar_graphic_system__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _charts_bar_graphic_gender__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./charts/bar-graphic-gender */ "./resources/js/charts/bar-graphic-gender.js");
+/* harmony import */ var _charts_bar_graphic_gender__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_charts_bar_graphic_gender__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editor.js");
+/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_editorjs_editorjs__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/bundle.js");
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_editorjs_header__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @editorjs/list */ "./node_modules/@editorjs/list/dist/bundle.js");
+/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_editorjs_list__WEBPACK_IMPORTED_MODULE_8__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -52029,31 +52037,41 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1___default.a({
-  /** 
-  * Id of Element that should contain the Editor 
-  */
-  holderId: 'editor',
 
-  /** 
-   * Available Tools list. 
-   * Pass Tool's class or Settings object for each Tool you want to use 
-   */
-  tools: {
-    header: _editorjs_header__WEBPACK_IMPORTED_MODULE_2___default.a,
-    list: _editorjs_list__WEBPACK_IMPORTED_MODULE_3___default.a
-  },
-  onReady: function onReady() {
-    console.log('Editor.js is ready to work!');
-  }
-});
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
+
+
+
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //back button
+
+var split_url = window.location.pathname.split('/');
+
+if (split_url.length > 2) {
+  $('.logo .return').css('display', 'flex');
+}
+
 $(function () {
   var tabmenus = document.querySelectorAll('.tab-menu');
+  var modals = document.querySelectorAll('.modal');
+  var progresses = document.querySelectorAll('.item .progress .inner');
 
   if (tabmenus.length > 0) {
     tabmenus.forEach(function (tabmenu) {
       var object = new _objects_tab_menu__WEBPACK_IMPORTED_MODULE_0__["default"](tabmenu);
+      object.init();
+    });
+  }
+
+  if (modals.length > 0) {
+    modals.forEach(function (modal) {
+      var object = new _objects_modal__WEBPACK_IMPORTED_MODULE_1__["default"](modal);
+      object.init();
+    });
+  }
+
+  if (progresses.length > 0) {
+    progresses.forEach(function (progress) {
+      var object = new _objects_progress__WEBPACK_IMPORTED_MODULE_2__["default"](progress);
       object.init();
     });
   }
@@ -52095,6 +52113,24 @@ var app = new Vue({
       password.value = inputsValue[0].value + inputsValue[1].value + inputsValue[2].value + inputsValue[3].value + inputsValue[4].value;
       submit.click();
     }
+  }
+});
+var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_6___default.a({
+  /** 
+  * Id of Element that should contain the Editor 
+  */
+  holderId: 'editor',
+
+  /** 
+   * Available Tools list. 
+   * Pass Tool's class or Settings object for each Tool you want to use 
+   */
+  tools: {
+    header: _editorjs_header__WEBPACK_IMPORTED_MODULE_7___default.a,
+    list: _editorjs_list__WEBPACK_IMPORTED_MODULE_8___default.a
+  },
+  onReady: function onReady() {
+    console.log('Editor.js is ready to work!');
   }
 });
 
@@ -52142,6 +52178,261 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/charts/bar-graphic-gender.js":
+/*!***************************************************!*\
+  !*** ./resources/js/charts/bar-graphic-gender.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var ctx = document.getElementById('barChartGender').getContext('2d');
+var barChartGender = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: [20, 10],
+      backgroundColor: ['rgba(247, 60, 46, 1)', 'rgba(27,24,42,1)'],
+      borderWidth: 0
+    }],
+    labels: ['', '']
+  },
+  options: {
+    cutoutPercentage: 80,
+    legend: {
+      display: false
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/charts/bar-graphic-system.js":
+/*!***************************************************!*\
+  !*** ./resources/js/charts/bar-graphic-system.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var ctx = document.getElementById('barChartSystem').getContext('2d');
+var barChartSystem = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: [10, 20],
+      backgroundColor: ['rgba(247, 60, 46, 1)', 'rgba(27,24,42,1)'],
+      borderWidth: 0
+    }],
+    labels: ['Red', 'jkl']
+  },
+  options: {
+    cutoutPercentage: 80,
+    legend: {
+      display: false
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/charts/line-graphic.js":
+/*!*********************************************!*\
+  !*** ./resources/js/charts/line-graphic.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var ctx = document.getElementById('lineChart').getContext('2d');
+var lineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['', '', '', '', '', ''],
+    showLine: false,
+    datasets: [{
+      label: '',
+      data: [2, 9, 30, 25, 35, 32, 27, 34, 42],
+      backgroundColor: ['rgba(0, 99, 132, 0)', 'rgba(0, 162, 235, 0)', 'rgba(255, 206, 86, 0)', 'rgba(75, 192, 192, 0)', 'rgba(153, 102, 255, 0)', 'rgba(255, 159, 64, 0)'],
+      borderColor: ['rgba(247, 60, 46, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+      borderWidth: 2,
+      pointBackgroundColor: ['rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)'],
+      pointBorderColor: ['rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)', 'rgba(247, 60, 46, 0)']
+    }]
+  },
+  options: {
+    title: {
+      display: false
+    },
+    legend: {
+      display: false
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          padding: 10,
+          fontColor: "rgba(0, 0, 0, .2)",
+          fontFamily: "Proxima Nova"
+        },
+        gridLines: {
+          borderColor: "rgba(0, 0, 0, .2)",
+          zeroLineWidth: 1
+        }
+      }],
+      xAxes: [{
+        gridLines: {
+          display: false
+        }
+      }]
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/objects/modal.js":
+/*!***************************************!*\
+  !*** ./resources/js/objects/modal.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Modal; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Modal = /*#__PURE__*/function () {
+  /**
+   * @param   {Element} element
+   */
+  function Modal(element) {
+    _classCallCheck(this, Modal);
+
+    /**
+     * @type {Element}
+     * @private
+     */
+    this._container = element;
+    /**
+     * @type {NodeListOf<Element>}
+     */
+
+    this.delete_button = document.querySelectorAll('.overview.list .item .delete');
+    this.cross = this._container.querySelector(".cross");
+    this.cancel = this._container.querySelector(".cancel");
+    this.text = this._container.querySelector(".inner h2");
+    this.inline_delete_button = this._container.querySelector(".controls .control.red");
+  }
+
+  _createClass(Modal, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      var self = this;
+      this.delete_button.forEach(function (button) {
+        button.addEventListener('click', function (button) {
+          self.showModal(button);
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+          _this.hideModal();
+        }
+      });
+      this.cross.addEventListener('click', function () {
+        _this.hideModal();
+      });
+      this.cancel.addEventListener('click', function () {
+        _this.hideModal();
+      });
+    }
+  }, {
+    key: "showModal",
+    value: function showModal(button) {
+      console.log();
+
+      this._container.classList.add("active");
+
+      this.text.innerHTML = "Weet je zeker dat je de blog '" + button.srcElement.dataset.name + "' wilt verwijderen?";
+      this.inline_delete_button.href = "/wijzigen/blogs/" + button.srcElement.dataset.number + "/delete";
+    }
+  }, {
+    key: "hideModal",
+    value: function hideModal() {
+      this._container.classList.remove("active");
+    }
+  }]);
+
+  return Modal;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/objects/progress.js":
+/*!******************************************!*\
+  !*** ./resources/js/objects/progress.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Progress; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Progress = /*#__PURE__*/function () {
+  /**
+   * @param   {Element} element
+   */
+  function Progress(element) {
+    _classCallCheck(this, Progress);
+
+    /**
+     * @type {Element}
+     * @private
+     */
+    this._container = element;
+    /**
+     * @type {NodeListOf<Element>}
+     */
+
+    this.percent = this._container.dataset.procent;
+  }
+
+  _createClass(Progress, [{
+    key: "init",
+    value: function init() {
+      $(this._container).css("width", this.percent + "%");
+
+      if (this.percent > 30) {
+        $(this._container).removeClass('red');
+        $(this._container).addClass('orange');
+      }
+
+      if (this.percent > 70) {
+        $(this._container).removeClass('orange');
+        $(this._container).addClass('green');
+      }
+    }
+  }]);
+
+  return Progress;
+}();
+
+
 
 /***/ }),
 

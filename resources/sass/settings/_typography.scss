@@ -98,6 +98,7 @@ a {
     font-weight: 500;
     font-style: normal;
     text-decoration: none;
+    cursor: pointer;
 
     transition: color 250ms ease-in-out;
 
@@ -105,7 +106,7 @@ a {
         color: $grey-300;
 
         &:hover {
-            color: $green;
+            color: $black;
             opacity: 1;
         }
     }
@@ -116,5 +117,9 @@ a {
         &:hover {
             color: $black;
         }
+    }
+    &.red {
+        color: $red;
+        
     }
 }

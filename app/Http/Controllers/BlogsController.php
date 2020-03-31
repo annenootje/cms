@@ -71,4 +71,15 @@ class BlogsController extends Controller
     
         return redirect()->action('BlogsController@overview');
     }
+
+    public function toggle($id) {
+        
+        $blog = Blog::find($id);
+        
+        $blog->visible = !$blog->visible;
+
+        $blog->save();
+    
+        return redirect()->back();
+    }
 }

@@ -3,3 +3,18 @@
     background-size: contain;
     background-position: center;
 }
+
+@mixin icon-cirkel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100%;
+    transition: $transition;
+
+    &:hover {
+        background-color: $grey-100;
+    }
+}

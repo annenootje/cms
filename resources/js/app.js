@@ -7,41 +7,47 @@
 require('./bootstrap');
 
 import Tabmenu from './objects/tab-menu';
+import Modal from './objects/modal';
+import Progress from './objects/progress';
+
+import './charts/line-graphic';
+import './charts/bar-graphic-system';
+import './charts/bar-graphic-gender';
+
 import EditorJS from '@editorjs/editorjs'; 
 import Header from '@editorjs/header'; 
 import List from '@editorjs/list';
 
-const editor = new EditorJS({ 
-        /** 
-     * Id of Element that should contain the Editor 
-     */ 
-    holderId: 'editor', 
-    
-    /** 
-     * Available Tools list. 
-     * Pass Tool's class or Settings object for each Tool you want to use 
-     */ 
-    tools: { 
-      header: Header, 
-      list: List 
-    }, 
-
-    onReady: () => {
-        console.log('Editor.js is ready to work!')
-     }
-
-
-  })
-
 window.Vue = require('vue');
+
+
+//back button
+let split_url = window.location.pathname.split('/');
+if (split_url.length > 2) {
+    $('.logo .return').css('display', 'flex');
+}
 
 
 $(() => {
     const tabmenus = document.querySelectorAll('.tab-menu');
+    const modals = document.querySelectorAll('.modal');
+    const progresses = document.querySelectorAll('.item .progress .inner');
 
     if (tabmenus.length > 0) {
         tabmenus.forEach((tabmenu) => {
             const object = new Tabmenu(tabmenu);
+            object.init();
+        });
+    }
+    if (modals.length > 0) {
+        modals.forEach((modal) => {
+            const object = new Modal(modal);
+            object.init();
+        });
+    }
+    if (progresses.length > 0) {
+        progresses.forEach((progress) => {
+            const object = new Progress(progress);
             object.init();
         });
     }
@@ -93,4 +99,26 @@ const app = new Vue({
             submit.click();
         }
     }
+})
+
+const editor = new EditorJS({ 
+    /** 
+ * Id of Element that should contain the Editor 
+ */ 
+holderId: 'editor', 
+
+/** 
+ * Available Tools list. 
+ * Pass Tool's class or Settings object for each Tool you want to use 
+ */ 
+tools: { 
+  header: Header, 
+  list: List 
+}, 
+
+onReady: () => {
+    console.log('Editor.js is ready to work!')
+ }
+
+
 })

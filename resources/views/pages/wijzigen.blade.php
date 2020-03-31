@@ -20,8 +20,8 @@
                     </div>
                     <div class="progress">
                         <div
-                            class="inner green"
-                            style="width: 100%;">
+                            class="inner red"
+                            data-procent="70">
                         </div>
                     </div>
                     <div class="controls">
@@ -55,8 +55,8 @@
                     </div>
                     <div class="progress">
                         <div
-                            class="inner green"
-                            style="width: 100%;">
+                            class="inner red"
+                            data-procent="95">
                         </div>
                     </div>
                     <div class="controls">

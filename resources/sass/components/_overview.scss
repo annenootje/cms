@@ -45,9 +45,11 @@
             background-color: $grey-200;
 
             .inner {
-                width: 30%;
+                width: 0%;
                 border-radius: 20px;
                 height: 5px;
+
+                transition: 450ms ease-out;
 
                 &.red {
                     background: $red;
@@ -85,13 +87,14 @@
                 width: 100%;
                 
                 background-color: $blue-700;
+                transition: $transition;
 
                 p {
                     color: white;
                     margin-top: 15px;
                 }
 
-                &:nth-child(2) {
+                &:hover {
                     background-color: $blue-800;
                 }
             }
@@ -139,6 +142,7 @@
 
                     img {
                         z-index: 1;
+                        pointer-events: none;
                     }
 
                     &::before {
