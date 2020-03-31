@@ -1,0 +1,59 @@
+.recommendations {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    height: 680px;
+
+    @media all and (max-width: 900px) {
+        height: auto;
+    }
+
+    .item {
+        position: relative;
+        padding: 30px;
+        width: calc((100% / 3) - (60px / 4));
+        margin-bottom: 20px;
+        margin-right: 20px;
+
+        @media all and (max-width: 900px) {
+            width: 100%;
+        }
+
+        .subtitle {
+            margin-bottom: 10px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            color: $black;
+
+            max-width: calc(100% - 20px);
+        }
+
+        a {
+            display: inline-block;
+            color: $green;
+            margin-top: 20px;
+            font-weight: 600;
+
+            &:hover {
+                color: $black;
+            }
+        }
+    }
+
+    .cross {
+        @include cross;
+
+        right: 17px;
+        top: 17px;
+
+        width: 40px;
+        height: 40px;
+
+        span {
+            width: 17px;
+        }
+    }
+}

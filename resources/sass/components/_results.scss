@@ -5,6 +5,10 @@
 
     margin-top: 20px;
 
+    @media (max-width: 1330px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .left {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -16,14 +20,26 @@
             justify-content: center;
             flex-direction: column;
 
-            padding: 45px;
+            padding: 48px 45px 45px;
+
+            &.numbers {
+                text-align: center;
+
+                p {
+                    min-height: 34px;
+                }
+            }
 
             h1 {
                 font-weight: 400;
                 font-size: 35px;
 
+                @media (max-width: 530px) {
+                    font-size: 25px;
+                }
+
                 & + p {
-                    margin-top: 3px;
+                    margin-top: 5px;
                 }
             }
         }
@@ -40,9 +56,19 @@
     &.half {
         grid-template-columns: 50% 50%;
 
+        @media (max-width: 1330px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
         .card {
             .title {
                 margin-bottom: 30px;
+            }
+        }
+
+        .left {
+            @media (max-width: 680px) {
+                grid-template-columns: repeat(1, 1fr); 
             }
         }
     }
@@ -58,6 +84,7 @@
 
     .data {
         height: calc(100% - 52px);
+        min-height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

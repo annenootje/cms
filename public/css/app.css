@@ -387,6 +387,16 @@ body main .content .part .container.head {
   align-items: flex-end;
 }
 
+@media all and (max-width: 700px) {
+  body main .content .part .container.head {
+    display: block;
+  }
+
+  body main .content .part .container.head h1 {
+    margin-bottom: 40px;
+  }
+}
+
 .login-container {
   display: flex;
   max-height: 100vh;
@@ -1035,6 +1045,12 @@ form .form-control.form-control {
   margin-top: 20px;
 }
 
+@media (max-width: 1330px) {
+  .results {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .results .left {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1046,7 +1062,15 @@ form .form-control.form-control {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 45px;
+  padding: 48px 45px 45px;
+}
+
+.results .left .card.numbers {
+  text-align: center;
+}
+
+.results .left .card.numbers p {
+  min-height: 34px;
 }
 
 .results .left .card h1 {
@@ -1054,8 +1078,14 @@ form .form-control.form-control {
   font-size: 35px;
 }
 
+@media (max-width: 530px) {
+  .results .left .card h1 {
+    font-size: 25px;
+  }
+}
+
 .results .left .card h1 + p {
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .results .right {
@@ -1070,8 +1100,20 @@ form .form-control.form-control {
   grid-template-columns: 50% 50%;
 }
 
+@media (max-width: 1330px) {
+  .results.half {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .results.half .card .title {
   margin-bottom: 30px;
+}
+
+@media (max-width: 680px) {
+  .results.half .left {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .line-graphic {
@@ -1085,6 +1127,7 @@ form .form-control.form-control {
 
 .bar-graphic .data {
   height: calc(100% - 52px);
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1178,5 +1221,129 @@ form .form-control.form-control {
 
 .filter + .filter {
   margin-left: 20px;
+}
+
+.recommendations {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 680px;
+}
+
+@media all and (max-width: 900px) {
+  .recommendations {
+    height: auto;
+  }
+}
+
+.recommendations .item {
+  position: relative;
+  padding: 30px;
+  width: calc((100% / 3) - (60px / 4));
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+@media all and (max-width: 900px) {
+  .recommendations .item {
+    width: 100%;
+  }
+}
+
+.recommendations .item .subtitle {
+  margin-bottom: 10px;
+}
+
+.recommendations .item .title {
+  margin-bottom: 20px;
+  color: #212121;
+  max-width: calc(100% - 20px);
+}
+
+.recommendations .item a {
+  display: inline-block;
+  color: #4DAD92;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.recommendations .item a:hover {
+  color: #212121;
+}
+
+.recommendations .cross {
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+  background-color: white;
+  right: 17px;
+  top: 17px;
+  width: 40px;
+  height: 40px;
+}
+
+.recommendations .cross:hover {
+  background-color: #F8F8F8;
+}
+
+.recommendations .cross span {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 20px;
+  height: 2px;
+  border-radius: 5px;
+  transform: rotate(45deg);
+  background: #212121;
+}
+
+.recommendations .cross span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.recommendations .cross span {
+  width: 17px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table thead {
+  width: 100%;
+}
+
+table thead tr td {
+  padding: 0 20px 10px;
+  width: 50px;
+}
+
+table tbody {
+  width: 100%;
+}
+
+table tbody tr td {
+  padding: 20px;
+  font-size: 14px;
+  border: none;
+  width: 140px;
+  background-color: white;
+}
+
+table tbody tr td:last-child {
+  width: calc(100% - (140px));
 }
 

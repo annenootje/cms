@@ -19,21 +19,21 @@
             <h4>Algemeen</h4>
             <div class="results">
                 <div class="left">
-                    <div class="card">
+                    <div class="card numbers">
                         <h1>1329</h1>
                         <p>Bezoekers</p>
                     </div>
-                    <div class="card">
-                        <h1>1329</h1>
-                        <p>Bezoekers</p>
+                    <div class="card numbers">
+                        <h1>1249</h1>
+                        <p>Nieuwe<br>bezoekers</p>
                     </div>
-                    <div class="card">
-                        <h1>1329</h1>
-                        <p>Bezoekers</p>
+                    <div class="card numbers">
+                        <h1>1139</h1>
+                        <p>Bestellingen</p>
                     </div>
-                    <div class="card">
-                        <h1>1329</h1>
-                        <p>Bezoekers</p>
+                    <div class="card numbers">
+                        <h1>&euro;128</h1>
+                        <p>Verkocht<br>aan producten</p>
                     </div>
                 </div>
                 <div class="right card line-graphic">

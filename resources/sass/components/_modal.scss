@@ -76,47 +76,7 @@
         }
 
         .cross {
-            position: absolute;
-            right: 35px;
-            top: 35px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 45px;
-            height: 45px;
-            border-radius: 100%;
-            cursor: pointer;
-            transition: $transition;
-
-            background-color: white;
-
-            &:hover {
-                background-color: $grey-100;
-            }
-
-            span {
-                display: inline-block;   
-                
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                right: 0;
-                left: 0;
-
-                margin: auto;
-                width: 20px;
-                height: 2px;
-                border-radius: 5px;
-                transform: rotate(45deg);
-
-                background: $black;
-                
-                &:nth-child(2) {
-                    transform: rotate(-45deg);
-                }
-            }
+            @include cross;
         }
     }
 }

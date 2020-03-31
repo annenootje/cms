@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+    thead {
+        width: 100%;
+        tr {
+            td {
+                padding: 0 20px 10px;
+                width: 50px;
+            }
+        }
+
+    }
+    tbody {
+        width: 100%;
+        tr {
+            td {
+                padding: 20px;
+                font-size: 14px;
+                border: none;
+                width: 140px;
+
+                background-color: white;
+
+                &:last-child {
+                    width: calc(100% - (140px));
+                }
+            }
+        }
+    }
+}
