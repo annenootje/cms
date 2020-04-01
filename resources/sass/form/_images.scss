@@ -1,0 +1,78 @@
+form {
+
+    .images {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        width: 100%;
+        height: 100px;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .inner {
+            display: flex;
+            width: fit-content;
+
+            .image {
+                width: 145px;
+                height: 100px;
+                background-color: white;
+                border-radius: 2px;
+                cursor: pointer;
+    
+                @include coverBackground;
+    
+                &.placeholder {
+                    border: 2px dashed $grey-200;
+                    transition: $transition;
+    
+                    background-image: url("/img/icons/plus.svg");
+                    @include containBackground;
+                    background-size: 20px;
+    
+                    &:hover {
+                        border: 2px dashed $black; 
+                    }
+                }
+    
+                &:not(.placeholder) {
+                    position: relative;
+                    
+                    &::after {
+                        content: '';
+    
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        bottom: 0;
+    
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: $transition;
+                        
+                        background-image: url('/img/icons/bin-red.svg');
+                        @include containBackground;
+                        background-size: 20px 20px;
+                        background-color: rgba(0,0,0,.85);
+                    }
+                }
+    
+                &:hover {
+                    &::after {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+    
+                & + .image {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}

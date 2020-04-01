@@ -7,7 +7,8 @@
         <title>BlendIt</title>
         <link rel="stylesheet" href="/css/app.css">
     </head>
-    <body id="app">
+    <body>
+        <div id="app">
         
         <header>
             <div
@@ -99,11 +100,12 @@
         <div class="mobileMenu">
             
         </div>
+        </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
         <script src="/js/app.js"></script>
-        <script src="https://npmcdn.com/vue/dist/vue.js"></script>
-        
     </body>
 </html>

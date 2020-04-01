@@ -17,14 +17,19 @@
                 {{ method_field('PATCH') }}
 
                 <div class="tab tab-1 active">
+                    <label for="title">Afbeelding</label>
+                    <div class="images">
+                        <div class="inner">
+                            <div class="image placeholder"></div>
+                            <div class="image"
+                            style="background-image:url('/img/elephant.jpg')"></div>
+                        </div>
+                    </div>
                     <label for="title">Titel</label>
                     <input type="text" id="title" name="title" value="{{$blog->title}}">
 
                     <label for="subtitle">Subtitel</label>
                     <input type="text" id="subtitle" name="subtitle" value="{{$blog->subtitle}}">
-
-                    <label for="subtitle">Afbeelding</label>
-                    <input type="text" id="subtitle" name="image" value="{{$blog->image}}">
 
                     <label for="preview">Preview</label>
                     <textarea type="text" id="preview" name="preview">{{$blog->preview}}

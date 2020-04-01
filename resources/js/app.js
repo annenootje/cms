@@ -1,10 +1,6 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
+
+import './init/editor';
 
 import Tabmenu from './objects/tab-menu';
 import Modal from './objects/modal';
@@ -14,10 +10,6 @@ import './charts/line-graphic';
 import './charts/bar-graphic-system';
 import './charts/bar-graphic-gender';
 
-import EditorJS from '@editorjs/editorjs'; 
-import Header from '@editorjs/header'; 
-import List from '@editorjs/list';
-
 window.Vue = require('vue');
 
 
@@ -26,7 +18,6 @@ let split_url = window.location.pathname.split('/');
 if (split_url.length > 2) {
     $('.logo .return').css('display', 'flex');
 }
-
 
 $(() => {
     const tabmenus = document.querySelectorAll('.tab-menu');
@@ -99,26 +90,4 @@ const app = new Vue({
             submit.click();
         }
     }
-})
-
-const editor = new EditorJS({ 
-    /** 
- * Id of Element that should contain the Editor 
- */ 
-holderId: 'editor', 
-
-/** 
- * Available Tools list. 
- * Pass Tool's class or Settings object for each Tool you want to use 
- */ 
-tools: { 
-  header: Header, 
-  list: List 
-}, 
-
-onReady: () => {
-    console.log('Editor.js is ready to work!')
- }
-
-
 })

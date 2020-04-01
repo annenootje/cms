@@ -2,23 +2,25 @@
 
 @section('content')
     <div class="part">
+
         <div class="container">
             <h1>Blogs</h1>
             <p>Kies een blog om te wijzigen</p>
-        </div>        
+        </div>    
+            
         <div class="container">
             <div class="overview list">
                 @if(count($blogs) > 0)
                     @foreach($blogs as $blog)
                         <div class="item">
-                            <div>
+                            <a href='/wijzigen/blogs/{{$blog->id}}/edit'>
                                 <h3 class="title">
                                     {{ $blog->title }}
                                 </h3>
                                 <p class="text">
                                     {{ $blog->created_at->format("d-m-Y") }}
                                 </p>
-                            </div>
+                            </a>
                             <div class="controls">
                                 <div class="control delete"
                                     data-number="{{$blog->id}}"
@@ -53,6 +55,7 @@
                 @endif
             </div>
         </div>
+        @include('./widgets/divider', ['text' => "Blog toevoegen", 'link' => "/wijzigen/blogs/new"])
     </div>
     @include('/widgets/modal')
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Blog;
 
 class PagesController extends Controller
 {
@@ -39,9 +40,12 @@ class PagesController extends Controller
     }
     public function testen() {
         $message = "Kies of maak een test";
+        $blog = Blog::find('35');
         
-        return view('pages.testen')
-            ->with(["message", $message]);
+        $content = json_decode($blog->content);
+        
+        return view('pages.testen',
+            compact("blog", "content"));
     }
     public function logout () {
         auth()->logout();

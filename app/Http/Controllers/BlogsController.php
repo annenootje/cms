@@ -41,10 +41,7 @@ class BlogsController extends Controller
         $blog->metadescription = request("metadescription");
         $blog->save();
 
-        $blogs = Blog::all();
-
-        return view("/elements/blogs/overview",
-            compact("blogs"));
+        return redirect()->action('BlogsController@overview');
     }
 
     public function update($id) {

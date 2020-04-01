@@ -1,9 +1,5 @@
 <svg x="0px" y="0px" width="16.7px"
 	 height="17.8px" viewBox="0 0 16.7 17.8" style="enable-background:new 0 0 16.7 17.8;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#F73C2E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:none;stroke:#F73C2E;stroke-width:2;stroke-linecap:round;}
-</style>
 <defs>
 </defs>
 <g id="Group_99_1_" transform="translate(1 1)">

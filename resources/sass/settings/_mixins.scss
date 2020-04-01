@@ -4,6 +4,12 @@
     background-position: center;
 }
 
+@mixin coverBackground {
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+}
+
 @mixin icon-cirkel {
     display: flex;
     align-items: center;

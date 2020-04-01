@@ -484,6 +484,21 @@ body main .content .part .container.head {
   background-color: #EFEFEF;
 }
 
+.st0 {
+  fill: none;
+  stroke: #F73C2E;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.st1 {
+  fill: none;
+  stroke: #F73C2E;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
 .overview {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1345,5 +1360,131 @@ table tbody tr td {
 
 table tbody tr td:last-child {
   width: calc(100% - (140px));
+}
+
+.divider {
+  position: relative;
+  width: 100%;
+  height: 24px;
+}
+
+.divider a {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  padding: 0 15px;
+  background-color: #F8F8F8;
+  text-align: center;
+  color: #C6C6C6;
+  line-height: 23px;
+}
+
+.divider a:hover {
+  color: #212121;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  background-color: #C6C6C6;
+}
+
+form .images {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+}
+
+form .images::-webkit-scrollbar {
+  display: none;
+}
+
+form .images .inner {
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+form .images .inner .image {
+  width: 145px;
+  height: 100px;
+  background-color: white;
+  border-radius: 2px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+form .images .inner .image.placeholder {
+  border: 2px dashed #EFEFEF;
+  transition: 250ms ease-in-out;
+  background-image: url("/img/icons/plus.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-size: 20px;
+}
+
+form .images .inner .image.placeholder:hover {
+  border: 2px dashed #212121;
+}
+
+form .images .inner .image:not(.placeholder) {
+  position: relative;
+}
+
+form .images .inner .image:not(.placeholder)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 250ms ease-in-out;
+  background-image: url("/img/icons/bin-red.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-size: 20px 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+form .images .inner .image:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+form .images .inner .image + .image {
+  margin-left: 15px;
+}
+
+#editorjs {
+  padding: 20px 25px;
+  background-color: white;
+  min-height: 300px;
+}
+
+#editorjs .codex-editor__redactor {
+  padding-bottom: 50px !important;
 }
 

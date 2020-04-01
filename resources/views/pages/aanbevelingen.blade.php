@@ -10,7 +10,7 @@
             <div class="item card">
                 <p class="subtitle">Blogberichten</p>
                 <h4 class="title">
-                    Er is al twee maanden geen bericht geplaatst.
+                    Naar blogberichten
                 </h4>
                 <p class="black">
                     Een belangrijk element wat Google checkt, is de 

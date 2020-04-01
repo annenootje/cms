@@ -16,27 +16,32 @@
                 @csrf
 
                 <div class="tab tab-1 active">
+                    <label for="title">Afbeelding</label>
+                    <div class="images">
+                        <div class="inner">
+                            <div class="image placeholder"></div>
+                        </div>
+                    </div>
+
                     <label for="title">Titel</label>
                     <input type="text" id="title" name="title" autofocus>
 
                     <label for="subtitle">Subtitel</label>
                     <input type="text" id="subtitle" name="subtitle">
 
-                    <label for="subtitle">Afbeelding</label>
-                    <input type="text" id="subtitle" name="image">
-
                     <label for="preview">Preview</label>
-                    <textarea type="text" id="preview" name="preview">
-                    </textarea>
+                    <textarea type="text" id="preview" name="preview"
+                    ></textarea>
 
                 </div>
 
                 <div class="tab tab-2">
-                    <textarea
-                        class="large" 
+                    <div id="editorjs"></div>
+                    <input
+                        type="hidden" 
+                        class="editor-data" 
                         name="content"
-                        id="editor"
-                    ></textarea>
+                    >
                 </div>
 
                 <div class="tab tab-3">

@@ -35,7 +35,6 @@
                 </table>
             @else
                 <p>Nog geen bestellingen</p>
-            
             @endif
         </div>
     </div>
