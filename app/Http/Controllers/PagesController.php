@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Blog;
+use App\Test;
 
 class PagesController extends Controller
 {
@@ -40,12 +41,23 @@ class PagesController extends Controller
     }
     public function testen() {
         $message = "Kies of maak een test";
-        $blog = Blog::find('35');
-        
-        $content = json_decode($blog->content);
+        $tests = Test::all();
+        $now = date_create();
+
+        foreach($tests as $test) {
+            $difference = date_diff($test->created_at, $now);
+
+            if($difference->days <= 14) {
+                $test->fase = "one";
+            } else if ( $difference->days >= 15 && $difference->days <= 28 ) {
+                $test->fase = "two";
+            } else {
+                $test->fase = "done";
+            }
+        }
         
         return view('pages.testen',
-            compact("blog", "content"));
+            compact('tests'));
     }
     public function logout () {
         auth()->logout();

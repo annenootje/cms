@@ -1,12 +1,18 @@
 form {
 
     label {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
         & + input,
         & + textarea
         {
             margin-top: 10px;
+        }
+
+        p {
+
         }
     }
 

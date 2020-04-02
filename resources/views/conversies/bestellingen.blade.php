@@ -7,32 +7,64 @@
         </div>
         <div class="container">
             @if(count($orders) > 0)
-                <table>
-                    <thead>
-                        <td>
+                <div class="overview list orders">
+                    <div class="heading">
+                        <div>
                             <p>Bestelling</p>
-                        </td>
-                        <td>
                             <p>Datum</p>
-                        </td>
-                        <td>
                             <p>Bedrag</p>
-                        </td>
-                        <td>
-                            <p>Status</p>
-                        </td>
-                    </thead>
-                    <tbody>
-                        @foreach($orders as $order)
-                            <tr>
-                                <td>{{$order->name}}</td>
-                                <td>{{$order->created_at->format('d-m-Y')}}</td>
-                                <td>&euro;139,00</td>
-                                <td>{{$order->status}}</td>
-                            </tr>
+                        </div>
+                        <p>Status</p>
+                    </div>
+
+                    <div class="overview-part">
+                        @foreach($orders->where('status', 'Open') as $order)
+                            <a class="item" href="/bestellingen/{{ $order->id }}/detail">
+                                <div class="row">
+                                    <p class="black">{{$order->name}}</p>
+                                    <p class="black">{{$order->created_at->format('d-m-Y')}}</p>
+                                    <p class="black">&euro;139,00</p>
+                                </div>
+                                <p class="black">
+                                    <span class="order-dot red"></span>
+                                    {{$order->status}}
+                                </p>
+                            </a>
                         @endforeach
-                    </tbody>
-                </table>
+                    </div>
+
+                    <div class="overview-part">
+                        @foreach($orders->where('status', 'In proces') as $order)
+                            <a class="item" href="/bestellingen/{{ $order->id }}/detail">
+                                <div class="row">
+                                    <p class="black">{{$order->name}}</p>
+                                    <p class="black">{{$order->created_at->format('d-m-Y')}}</p>
+                                    <p class="black">&euro;139,00</p>
+                                </div>
+                                <p class="black">
+                                    <span class="order-dot orange"></span>
+                                    {{$order->status}}
+                                </p>
+                            </a>
+                        @endforeach
+                    </div>
+
+                    <div class="overview-part">
+                        @foreach($orders->where('status', 'Afgerond') as $order)
+                            <a class="item" href="/bestellingen/{{ $order->id }}/detail">
+                                <div class="row">
+                                    <p class="black">{{$order->name}}</p>
+                                    <p class="black">{{$order->created_at->format('d-m-Y')}}</p>
+                                    <p class="black">&euro;139,00</p>
+                                </div>
+                                <p class="black">
+                                    <span class="order-dot green"></span>
+                                    {{$order->status}}
+                                </p>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
             @else
                 <p>Nog geen bestellingen</p>
             @endif

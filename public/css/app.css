@@ -28,8 +28,12 @@ h2 {
   font-size: 22px;
   line-height: 26px;
   font-family: proxima-nova, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
+}
+
+h2 + .heading {
+  margin-top: 30px;
 }
 
 h3 {
@@ -65,7 +69,8 @@ textarea {
   font-style: normal;
 }
 
-p {
+p,
+span {
   font-family: proxima-nova, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -73,28 +78,39 @@ p {
   color: #C6C6C6;
 }
 
-p.green {
-  color: #4DAD92;
-}
-
-p.green img {
-  margin-right: 7px;
-}
-
-p.black {
+p.black span,
+span.black span {
   color: #212121;
 }
 
-p.red {
-  color: #F73C2E;
+p.green img,
+span.green img {
+  margin-right: 7px;
 }
 
-p.center {
-  text-align: center;
+p.small-width,
+span.small-width {
+  width: 70%;
 }
 
-p.right {
-  text-align: center;
+p.mini-width,
+span.mini-width {
+  max-width: 250px;
+}
+
+p + h6,
+span + h6 {
+  margin-top: 3px;
+}
+
+p.extra-space,
+span.extra-space {
+  line-height: 25px;
+}
+
+p.bold,
+span.bold {
+  font-weight: 600;
 }
 
 a {
@@ -116,16 +132,52 @@ a.grey:hover {
   opacity: 1;
 }
 
-a.green {
-  color: #4DAD92;
-}
-
 a.green:hover {
   color: #212121;
 }
 
-a.red {
+span.min-width {
+  display: inline-block;
+  width: 110px;
+}
+
+*.green {
+  color: #4DAD92;
+}
+
+*.black {
+  color: #212121;
+}
+
+*.red {
   color: #F73C2E;
+}
+
+*.center {
+  text-align: center;
+}
+
+*.right {
+  text-align: center;
+}
+
+.col-2 {
+  display: inline-block;
+  margin-top: 30px;
+  width: calc(50% - 10px);
+}
+
+.col-2:nth-of-type(1) {
+  float: left;
+}
+
+.col-2:nth-of-type(2) {
+  float: right;
+}
+
+.col-3 {
+  display: inline-block;
+  width: calc((100% / 3) - 4px);
 }
 
 header {
@@ -632,9 +684,33 @@ body main .content .part .container.head.top {
   background-color: #0F0D19;
 }
 
+.overview .item.test .text {
+  margin-bottom: 0;
+}
+
+.overview .item.test .title {
+  min-height: unset;
+}
+
+.overview .item.test .status {
+  margin-bottom: 20px;
+}
+
 .overview .item:hover .controls {
   visibility: visible;
   opacity: 1;
+}
+
+.overview .heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+.overview .heading p {
+  display: table-cell !important;
+  width: 140px;
 }
 
 .overview.list {
@@ -661,8 +737,6 @@ body main .content .part .container.head.top {
 .overview.list .item .text {
   min-height: unset;
   margin: 0;
-  font-size: 13px;
-  line-height: 16px;
 }
 
 .overview.list .item .controls {
@@ -683,7 +757,7 @@ body main .content .part .container.head.top {
   z-index: 1;
   pointer-events: none;
   max-width: 25px;
-  max-height: 25px;
+  max-height: 21px;
 }
 
 .overview.list .item .controls .control::before {
@@ -707,6 +781,48 @@ body main .content .part .container.head.top {
 
 .overview.list .item + .item {
   margin-top: 15px;
+}
+
+.overview.orders .item {
+  padding: 20px;
+}
+
+.overview.orders .item:hover {
+  box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
+}
+
+.overview.orders .row {
+  display: flex;
+}
+
+.overview.orders p {
+  width: 140px;
+  display: inline-block;
+}
+
+.overview.orders .order-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 5px;
+  margin-bottom: 1px;
+  border-radius: 100%;
+}
+
+.overview.orders .order-dot.red {
+  background-color: #F73C2E;
+}
+
+.overview.orders .order-dot.orange {
+  background-color: #FFC400;
+}
+
+.overview.orders .order-dot.green {
+  background-color: #4DAD92;
+}
+
+.overview .overview-part + .overview-part {
+  margin-top: 40px;
 }
 
 .hamburger {
@@ -772,7 +888,9 @@ body main .content .part .container.head.top {
 }
 
 form label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 form label + input,
@@ -1249,6 +1367,26 @@ form .form-control.form-control {
   background-color: white;
 }
 
+.card.test-result {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 60px;
+}
+
+.card.test-result .item {
+  text-align: center;
+}
+
+.card.test-result .item h1 {
+  font-weight: 600;
+  font-size: 35px;
+}
+
+.card.test-result .item h1 + p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .filter {
   display: inline-block;
 }
@@ -1409,6 +1547,7 @@ table tbody tr td:last-child {
   position: relative;
   width: 100%;
   height: 24px;
+  margin-top: 60px !important;
 }
 
 .divider a {

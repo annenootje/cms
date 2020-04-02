@@ -22,9 +22,10 @@
                                 <h3 class="title">
                                     {{ $blog->title }}
                                 </h3>
-                                <p class="text">
+                                {{-- <p class="text">
                                     {{ $blog->created_at->format("d-m-Y") }}
-                                </p>
+                                </p> --}}
+                                <p class="text">247 lezers</p>
                             </a>
                             <div class="controls">
                                 <div class="control delete"
@@ -54,9 +55,9 @@
                         </div>
                     @endforeach
                 @else
-                    <a href="/wijzigen/blogs/new">
-                        Blog toevoegen?
-                    </a>
+                    <p class="black">
+                        Nog geen blogs
+                    </p>
                 @endif
             </div>
         </div>
