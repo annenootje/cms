@@ -38,7 +38,9 @@
                 </div>
                 <div class="right card line-graphic">
                     <h5>Conversies</h5>
+                    <div>
                     <canvas id="lineChart" width="100%" height="50px"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

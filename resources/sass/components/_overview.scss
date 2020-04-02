@@ -113,8 +113,15 @@
 
         .item {
             flex-direction: row;
+            align-items: center;
+            transition: $transition;
 
-            padding: 20px 30px;
+            padding: 19px 30px;
+
+            & > a {
+                display: inline-block;
+                width: 100%;
+            }
             
 
             .title {
@@ -124,6 +131,8 @@
             .text {
                 min-height: unset;
                 margin: 0;
+                font-size: 13px;
+                line-height: 16px;
             } 
             .controls {
                 position: static;
@@ -143,6 +152,8 @@
                     img {
                         z-index: 1;
                         pointer-events: none;
+                        max-width: 25px;
+                        max-height: 25px;
                     }
 
                     &::before {

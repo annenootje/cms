@@ -3,15 +3,20 @@
 @section('content')
     <div class="part">
 
-        <div class="container">
-            <h1>Blogs</h1>
-            <p>Kies een blog om te wijzigen</p>
+        <div class="container head top">
+            <div>
+                <h1>Blogberichten</h1>
+                <p>Kies een blogbericht om te wijzigen</p>
+            </div>
+            <a href="/wijzigen/blogs/new" class="icon-button">
+                <img src="/img/icons/plus.svg" alt="">
+            </a>
         </div>    
             
         <div class="container">
             <div class="overview list">
                 @if(count($blogs) > 0)
-                    @foreach($blogs as $blog)
+                    @foreach($blogs->reverse() as $blog)
                         <div class="item">
                             <a href='/wijzigen/blogs/{{$blog->id}}/edit'>
                                 <h3 class="title">

@@ -23,6 +23,8 @@
 }
 
 .icon-button {
+    position: relative;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,6 +38,20 @@
     cursor: pointer;
 
     background-color: transparent;
+
+    img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        margin: auto;
+
+        width: 20px;
+        height: 20px;
+
+    }
 
     &:hover,
     &:focus,

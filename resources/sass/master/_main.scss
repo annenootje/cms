@@ -57,6 +57,10 @@ body {
                         justify-content: space-between;
                         align-items: flex-end;
 
+                        &.top {
+                            align-items: flex-start;
+                        }
+
                         @media all and (max-width: 700px) {
                             display: block;
 

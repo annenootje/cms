@@ -30,29 +30,6 @@ if(graphic) {
             legend: {
                 display: false,
             },
-            // scales: {
-            //     yAxes: [{
-            //         ticks: {
-            //             beginAtZero: true,
-            //             padding: 10,
-            //             fontColor: "rgba(0, 0, 0, .2)",
-            //             fontFamily: "Proxima Nova",
-            //             fontStyle: "bold"
-            //         },
-            //         gridLines: {
-            //             borderColor: "rgba(0, 0, 0, .2)",
-            //             zeroLineWidth: 0,
-            //         },
-            //     }],
-            //     xAxes: [{
-                    
-            //         gridLines: {
-            //             display: false,
-            //         }
-            //     }]  ,
-
-            // },
-
             scales: {
                 xAxes: [{
                     gridLines: {

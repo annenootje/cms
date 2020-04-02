@@ -6,9 +6,9 @@ import Tabmenu from './objects/tab-menu';
 import Modal from './objects/modal';
 import Progress from './objects/progress';
 
-import './charts/line-graphic';
-import './charts/bar-graphic-system';
-import './charts/bar-graphic-gender';
+// import './charts/line-graphic';
+// import './charts/bar-graphic-system';
+// import './charts/bar-graphic-gender';
 
 window.Vue = require('vue');
 
@@ -91,3 +91,123 @@ const app = new Vue({
         }
     }
 })
+
+let barChartGenderGraphic = document.getElementById('barChartGender');
+if(barChartGenderGraphic) {
+    let ctx = barChartGenderGraphic.getContext('2d');
+
+    let barChartGender = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [20, 10],
+                backgroundColor: [
+                    'rgba(247, 60, 46, 1)',
+                    'rgba(27,24,42,1)',
+                ],
+                borderWidth: 0,
+            }],
+            
+        
+            labels: [
+                'Vrouw',
+                'Man',
+            ],
+        },
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: false,
+            },
+        }
+    });
+}
+
+let barChartSystemGraphic = document.getElementById('barChartSystem');
+
+if(barChartSystemGraphic) {
+    let ctx = barChartSystemGraphic.getContext('2d');
+
+    let barChartSystem = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [10, 20],
+                backgroundColor: [
+                    'rgba(247, 60, 46, 1)',
+                    'rgba(27,24,42,1)',
+                ],
+                borderWidth: 0,
+            }],        
+            labels: [
+                'Mobiel',
+                'Desktop',
+            ],
+        },
+        options: {
+            cutoutPercentage: 80,
+            legend: {
+                display: false,
+            },
+        }
+    });
+}
+
+let lineChartGraphic = document.getElementById('lineChart');
+
+if(lineChartGraphic) {
+    let ctx = lineChartGraphic.getContext('2d');
+
+    let lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['', '', '', '', '', ''],
+            showLine: false,
+            datasets: [{
+                label: '',
+                data: [5, 30, 25, 45, 32, 27, 34],
+                backgroundColor: [
+                    'rgba(0, 99, 132, 0)',
+                ],
+                steppedLine: false,
+                fill: false,
+                borderColor: 'rgba(247, 60, 46, 1)',
+                borderWidth: 2,
+                pointBorderColor: 'rgba(0, 0, 0, 0)',
+                pointBackgroundColor: 'rgba(0, 0, 0, 0)',
+            }]
+        },
+        options: {
+            title: {
+                display: false,
+            },
+            
+            legend: {
+                display: false,
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                }],
+                yAxes: [{
+                    gridLines: {
+                        drawBorder: false,
+                        zeroLineColor: 0
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        fontSize: 13,
+                        fontColor: "#CCCCCC",
+                        maxTicksLimit: 6,
+                        borderWidth: 2,
+                        padding: 20,
+                        fontFamily: 'Proxima Nova',
+                        fontWeight: 'bold',
+                    }
+                }]
+            },
+        },
+    });
+}

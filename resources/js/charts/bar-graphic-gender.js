@@ -1,7 +1,8 @@
 let graphic = document.getElementById('barChartGender');
-
+console.log(graphic);
 if(graphic) {
     let ctx = graphic.getContext('2d');
+    console.log(ctx);
 
     let barChartGender = new Chart(ctx, {
         type: 'doughnut',

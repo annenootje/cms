@@ -49382,20 +49382,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _objects_tab_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./objects/tab-menu */ "./resources/js/objects/tab-menu.js");
 /* harmony import */ var _objects_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./objects/modal */ "./resources/js/objects/modal.js");
 /* harmony import */ var _objects_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./objects/progress */ "./resources/js/objects/progress.js");
-/* harmony import */ var _charts_line_graphic__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./charts/line-graphic */ "./resources/js/charts/line-graphic.js");
-/* harmony import */ var _charts_line_graphic__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_charts_line_graphic__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _charts_bar_graphic_system__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./charts/bar-graphic-system */ "./resources/js/charts/bar-graphic-system.js");
-/* harmony import */ var _charts_bar_graphic_system__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_charts_bar_graphic_system__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _charts_bar_graphic_gender__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./charts/bar-graphic-gender */ "./resources/js/charts/bar-graphic-gender.js");
-/* harmony import */ var _charts_bar_graphic_gender__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_charts_bar_graphic_gender__WEBPACK_IMPORTED_MODULE_6__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
-
-
-
+ // import './charts/line-graphic';
+// import './charts/bar-graphic-system';
+// import './charts/bar-graphic-gender';
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //back button
 
@@ -49470,6 +49464,108 @@ var app = new Vue({
     }
   }
 });
+var barChartGenderGraphic = document.getElementById('barChartGender');
+
+if (barChartGenderGraphic) {
+  var ctx = barChartGenderGraphic.getContext('2d');
+  var barChartGender = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [20, 10],
+        backgroundColor: ['rgba(247, 60, 46, 1)', 'rgba(27,24,42,1)'],
+        borderWidth: 0
+      }],
+      labels: ['Vrouw', 'Man']
+    },
+    options: {
+      cutoutPercentage: 80,
+      legend: {
+        display: false
+      }
+    }
+  });
+}
+
+var barChartSystemGraphic = document.getElementById('barChartSystem');
+
+if (barChartSystemGraphic) {
+  var _ctx = barChartSystemGraphic.getContext('2d');
+
+  var barChartSystem = new Chart(_ctx, {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [10, 20],
+        backgroundColor: ['rgba(247, 60, 46, 1)', 'rgba(27,24,42,1)'],
+        borderWidth: 0
+      }],
+      labels: ['Mobiel', 'Desktop']
+    },
+    options: {
+      cutoutPercentage: 80,
+      legend: {
+        display: false
+      }
+    }
+  });
+}
+
+var lineChartGraphic = document.getElementById('lineChart');
+
+if (lineChartGraphic) {
+  var _ctx2 = lineChartGraphic.getContext('2d');
+
+  var lineChart = new Chart(_ctx2, {
+    type: 'line',
+    data: {
+      labels: ['', '', '', '', '', ''],
+      showLine: false,
+      datasets: [{
+        label: '',
+        data: [5, 30, 25, 45, 32, 27, 34],
+        backgroundColor: ['rgba(0, 99, 132, 0)'],
+        steppedLine: false,
+        fill: false,
+        borderColor: 'rgba(247, 60, 46, 1)',
+        borderWidth: 2,
+        pointBorderColor: 'rgba(0, 0, 0, 0)',
+        pointBackgroundColor: 'rgba(0, 0, 0, 0)'
+      }]
+    },
+    options: {
+      title: {
+        display: false
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            drawBorder: false,
+            zeroLineColor: 0
+          },
+          ticks: {
+            beginAtZero: true,
+            fontSize: 13,
+            fontColor: "#CCCCCC",
+            maxTicksLimit: 6,
+            borderWidth: 2,
+            padding: 20,
+            fontFamily: 'Proxima Nova',
+            fontWeight: 'bold'
+          }
+        }]
+      }
+    }
+  });
+}
 
 /***/ }),
 
@@ -49515,154 +49611,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/charts/bar-graphic-gender.js":
-/*!***************************************************!*\
-  !*** ./resources/js/charts/bar-graphic-gender.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var graphic = document.getElementById('barChartGender');
-
-if (graphic) {
-  var ctx = graphic.getContext('2d');
-  var barChartGender = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      datasets: [{
-        data: [20, 10],
-        backgroundColor: ['rgba(247, 60, 46, 1)', 'rgba(27,24,42,1)'],
-        borderWidth: 0
-      }],
-      labels: ['Vrouw', 'Man']
-    },
-    options: {
-      cutoutPercentage: 80,
-      legend: {
-        display: false
-      }
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/charts/bar-graphic-system.js":
-/*!***************************************************!*\
-  !*** ./resources/js/charts/bar-graphic-system.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var graphic = document.getElementById('barChartSystem');
-
-if (graphic) {
-  var ctx = graphic.getContext('2d');
-  var barChartSystem = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      datasets: [{
-        data: [10, 20],
-        backgroundColor: ['rgba(247, 60, 46, 1)', 'rgba(27,24,42,1)'],
-        borderWidth: 0
-      }],
-      labels: ['Mobiel', 'Desktop']
-    },
-    options: {
-      cutoutPercentage: 80,
-      legend: {
-        display: false
-      }
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/charts/line-graphic.js":
-/*!*********************************************!*\
-  !*** ./resources/js/charts/line-graphic.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var graphic = document.getElementById('lineChart');
-
-if (graphic) {
-  var ctx = graphic.getContext('2d');
-  var lineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['', '', '', '', '', ''],
-      showLine: false,
-      datasets: [{
-        label: '',
-        data: [5, 30, 25, 45, 32, 27, 34],
-        backgroundColor: ['rgba(0, 99, 132, 0)'],
-        steppedLine: false,
-        fill: false,
-        borderColor: 'rgba(247, 60, 46, 1)',
-        borderWidth: 2,
-        pointBorderColor: 'rgba(0, 0, 0, 0)',
-        pointBackgroundColor: 'rgba(0, 0, 0, 0)'
-      }]
-    },
-    options: {
-      title: {
-        display: false
-      },
-      legend: {
-        display: false
-      },
-      // scales: {
-      //     yAxes: [{
-      //         ticks: {
-      //             beginAtZero: true,
-      //             padding: 10,
-      //             fontColor: "rgba(0, 0, 0, .2)",
-      //             fontFamily: "Proxima Nova",
-      //             fontStyle: "bold"
-      //         },
-      //         gridLines: {
-      //             borderColor: "rgba(0, 0, 0, .2)",
-      //             zeroLineWidth: 0,
-      //         },
-      //     }],
-      //     xAxes: [{
-      //         gridLines: {
-      //             display: false,
-      //         }
-      //     }]  ,
-      // },
-      scales: {
-        xAxes: [{
-          gridLines: {
-            display: false
-          }
-        }],
-        yAxes: [{
-          gridLines: {
-            drawBorder: false,
-            zeroLineColor: 0
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 13,
-            fontColor: "#CCCCCC",
-            maxTicksLimit: 6,
-            borderWidth: 2,
-            padding: 20,
-            fontFamily: 'Proxima Nova',
-            fontWeight: 'bold'
-          }
-        }]
-      }
-    }
-  });
-}
 
 /***/ }),
 

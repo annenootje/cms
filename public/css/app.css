@@ -36,7 +36,7 @@ h3 {
   font-family: proxima-nova, sans-serif;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h4 {
@@ -231,6 +231,7 @@ header .menu .inner .item {
 }
 
 header .menu .inner .item a {
+  position: relative;
   font-size: 16px;
   font-weight: 600;
 }
@@ -238,6 +239,21 @@ header .menu .inner .item a {
 header .menu .inner .item a:hover,
 header .menu .inner .item a.active {
   color: #C6C6C6;
+}
+
+header .menu .inner .item a .counter {
+  position: absolute;
+  right: -13px;
+  top: -13px;
+  border-radius: 100%;
+  width: 14px;
+  padding: 4px 0;
+  height: 14px;
+  background: #4DAD92;
+  color: white;
+  font-size: 9px;
+  text-align: center;
+  line-height: 8px;
 }
 
 header .menu .inner .item.-has-submenu {
@@ -387,6 +403,10 @@ body main .content .part .container.head {
   align-items: flex-end;
 }
 
+body main .content .part .container.head.top {
+  align-items: flex-start;
+}
+
 @media all and (max-width: 700px) {
   body main .content .part .container.head {
     display: block;
@@ -466,6 +486,7 @@ body main .content .part .container.head {
 }
 
 .icon-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -476,6 +497,17 @@ body main .content .part .container.head {
   transition: 250ms ease-in-out;
   cursor: pointer;
   background-color: transparent;
+}
+
+.icon-button img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
 }
 
 .icon-button:hover,
@@ -611,7 +643,14 @@ body main .content .part .container.head {
 
 .overview.list .item {
   flex-direction: row;
-  padding: 20px 30px;
+  align-items: center;
+  transition: 250ms ease-in-out;
+  padding: 19px 30px;
+}
+
+.overview.list .item > a {
+  display: inline-block;
+  width: 100%;
 }
 
 .overview.list .item .title {
@@ -622,6 +661,8 @@ body main .content .part .container.head {
 .overview.list .item .text {
   min-height: unset;
   margin: 0;
+  font-size: 13px;
+  line-height: 16px;
 }
 
 .overview.list .item .controls {
@@ -641,6 +682,8 @@ body main .content .part .container.head {
 .overview.list .item .controls .control img {
   z-index: 1;
   pointer-events: none;
+  max-width: 25px;
+  max-height: 25px;
 }
 
 .overview.list .item .controls .control::before {
