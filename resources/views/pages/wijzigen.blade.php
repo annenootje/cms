@@ -1,12 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
+
     <div class="part">
         <div class="container">
             <h1>{{ $welcome }}</h1>
             <p>Kies een element om te wijzigen</p>
         </div>
     </div>
+
     <div class="part">
         <div class="container">
             <div class="overview dashboard">
@@ -30,7 +32,7 @@
                 @include(".widgets.edit-item", [
                     'title' => "Foto's en video's", 
                     "description" => "Voeg media toe",
-                    "addLink" => "/wijzigen/images/add",
+                    "addLink" => "/wijzigen/images/new",
                     "editLink" => "/wijzigen/images",
                     "progress" => "50"
                 ])

@@ -49382,7 +49382,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _objects_tab_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./objects/tab-menu */ "./resources/js/objects/tab-menu.js");
 /* harmony import */ var _objects_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./objects/modal */ "./resources/js/objects/modal.js");
 /* harmony import */ var _objects_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./objects/progress */ "./resources/js/objects/progress.js");
+/* harmony import */ var _objects_imageinput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./objects/imageinput */ "./resources/js/objects/imageinput.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -49403,6 +49405,7 @@ $(function () {
   var tabmenus = document.querySelectorAll('.tab-menu');
   var modals = document.querySelectorAll('.modal');
   var progresses = document.querySelectorAll('.item .progress .inner');
+  var imageInputs = document.querySelectorAll('.image.placeholder input');
 
   if (tabmenus.length > 0) {
     tabmenus.forEach(function (tabmenu) {
@@ -49421,6 +49424,13 @@ $(function () {
   if (progresses.length > 0) {
     progresses.forEach(function (progress) {
       var object = new _objects_progress__WEBPACK_IMPORTED_MODULE_3__["default"](progress);
+      object.init();
+    });
+  }
+
+  if (imageInputs.length > 0) {
+    imageInputs.forEach(function (imageInput) {
+      var object = new _objects_imageinput__WEBPACK_IMPORTED_MODULE_4__["default"](imageInput);
       object.init();
     });
   }
@@ -49675,6 +49685,63 @@ if (editorChecker) {
     });
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/objects/imageinput.js":
+/*!********************************************!*\
+  !*** ./resources/js/objects/imageinput.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Modal; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Modal = /*#__PURE__*/function () {
+  /**
+   * @param   {Element} element
+   */
+  function Modal(element) {
+    _classCallCheck(this, Modal);
+
+    /**
+     * @type {Element}
+     * @private
+     */
+    this._container = element;
+    this._chosenImage = document.querySelector(".chosenImage");
+  }
+
+  _createClass(Modal, [{
+    key: "init",
+    value: function init() {
+      var self = this;
+
+      this._container.addEventListener("change", function () {
+        console.log(self._container.files);
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $(self._chosenImage).attr('src', e.target.result);
+          console.log(self._chosenImage);
+        };
+
+        reader.readAsDataURL(self._container.files[0]);
+      });
+    }
+  }]);
+
+  return Modal;
+}();
+
+
 
 /***/ }),
 

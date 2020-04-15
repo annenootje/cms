@@ -5,6 +5,7 @@ import './init/editor';
 import Tabmenu from './objects/tab-menu';
 import Modal from './objects/modal';
 import Progress from './objects/progress';
+import ImageInput from './objects/imageinput';
 
 // import './charts/line-graphic';
 // import './charts/bar-graphic-system';
@@ -23,6 +24,7 @@ $(() => {
     const tabmenus = document.querySelectorAll('.tab-menu');
     const modals = document.querySelectorAll('.modal');
     const progresses = document.querySelectorAll('.item .progress .inner');
+    const imageInputs = document.querySelectorAll('.image.placeholder input');
 
     if (tabmenus.length > 0) {
         tabmenus.forEach((tabmenu) => {
@@ -39,6 +41,12 @@ $(() => {
     if (progresses.length > 0) {
         progresses.forEach((progress) => {
             const object = new Progress(progress);
+            object.init();
+        });
+    }
+    if (imageInputs.length > 0) {
+        imageInputs.forEach((imageInput) => {
+            const object = new ImageInput(imageInput);
             object.init();
         });
     }

@@ -1639,6 +1639,7 @@ form .images .inner .image {
 }
 
 form .images .inner .image.placeholder {
+  position: relative;
   border: 2px dashed #EFEFEF;
   transition: 250ms ease-in-out;
   background-image: url("/img/icons/plus.svg");
@@ -1650,6 +1651,17 @@ form .images .inner .image.placeholder {
 
 form .images .inner .image.placeholder:hover {
   border: 2px dashed #212121;
+}
+
+form .images .inner .image.placeholder img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  pointer-events: none;
 }
 
 form .images .inner .image.placeholder input {

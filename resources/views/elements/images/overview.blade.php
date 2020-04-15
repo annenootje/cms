@@ -12,6 +12,7 @@
     <div class="part">
         <div class="container">
             <div class="overview">
+
                 @foreach($images as $image)
                     <div class="item upload">
                         @if($image->type === "application/pdf")
@@ -38,6 +39,7 @@
                         </div>
                     </div>
                 @endforeach
+                
             </div>
         </div>
 

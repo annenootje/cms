@@ -30,6 +30,7 @@
                         <div class="inner">
                             <div class="image placeholder">
                                 <input type="file" name="image"/>
+                                <img src="" class="chosenImage" alt="">
                             </div>
                         </div>
                     </div>
