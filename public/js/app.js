@@ -49710,7 +49710,7 @@ var Modal = /*#__PURE__*/function () {
      * @type {NodeListOf<Element>}
      */
 
-    this.delete_button = document.querySelectorAll('.overview.list .item .delete');
+    this.delete_button = document.querySelectorAll('.control.delete');
     this.cross = this._container.querySelector(".cross");
     this.cancel = this._container.querySelector(".cancel");
     this.text = this._container.querySelector(".inner h2");
@@ -49743,12 +49743,12 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "showModal",
     value: function showModal(button) {
-      console.log();
+      console.log(button);
 
       this._container.classList.add("active");
 
-      this.text.innerHTML = "Weet je zeker dat je de blog '" + button.srcElement.dataset.name + "' wilt verwijderen?";
-      this.inline_delete_button.href = "/wijzigen/blogs/" + button.srcElement.dataset.number + "/delete";
+      this.text.innerHTML = "Weet je zeker dat je '" + button.srcElement.dataset.name + "' wilt verwijderen?";
+      this.inline_delete_button.href = "/wijzigen/" + button.srcElement.dataset.number + "/delete";
     }
   }, {
     key: "hideModal",

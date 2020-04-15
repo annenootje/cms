@@ -38,6 +38,12 @@ Route::get("/wijzigen/openingstijden", "OpeningtimeController@index")
 Route::patch("/wijzigen/openingstijden/edit", "OpeningtimeController@update")
         ->middleware("auth");
 
+//Openingstijden
+Route::get("/wijzigen/contactdetails", "ContactdetailsController@index")
+        ->middleware("auth");
+Route::patch("/wijzigen/contactdetails/edit", "ContactdetailsController@update")
+        ->middleware("auth");
+
 //Testen
 Route::get("/testen/new", "TestsController@new")
         ->middleware("auth");
@@ -65,4 +71,51 @@ Route::get("/wijzigen/blogs/{id}/delete", "BlogsController@delete")
       ->middleware("auth");
 Route::get("/wijzigen/blogs/{id}/toggle", "BlogsController@toggle")
       ->middleware("auth");
-      
+
+// Employees
+Route::get("/wijzigen/employees", "EmployeesController@overview")
+        ->middleware("auth");
+Route::get("/wijzigen/employees/new", "EmployeesController@new")
+        ->middleware("auth");
+Route::post("/wijzigen/employees/new", "EmployeesController@store")
+        ->middleware("auth");
+Route::patch("/wijzigen/employees/{id}/edit", "EmployeesController@update")
+        ->middleware("auth");
+Route::get("/wijzigen/employees/{id}/edit", "EmployeesController@edit")
+      ->middleware("auth");
+Route::get("/wijzigen/employees/{id}/delete", "EmployeesController@delete")
+      ->middleware("auth");
+Route::get("/wijzigen/employees/{id}/toggle", "EmployeesController@toggle")
+      ->middleware("auth");
+
+// Reviews
+Route::get("/wijzigen/reviews", "ReviewsController@overview")
+->middleware("auth");
+Route::get("/wijzigen/reviews/new", "ReviewsController@new")
+->middleware("auth");
+Route::post("/wijzigen/reviews/new", "ReviewsController@store")
+->middleware("auth");
+Route::patch("/wijzigen/reviews/{id}/edit", "ReviewsController@update")
+->middleware("auth");
+Route::get("/wijzigen/reviews/{id}/edit", "ReviewsController@edit")
+->middleware("auth");
+Route::get("/wijzigen/reviews/{id}/delete", "ReviewsController@delete")
+->middleware("auth");
+Route::get("/wijzigen/reviews/{id}/toggle", "ReviewsController@toggle")
+->middleware("auth");
+
+// Afbeeldingen
+Route::get("/wijzigen/images", "ImagesController@overview")
+        ->middleware("auth");
+Route::get("/wijzigen/images/new", "ImagesController@new")
+        ->middleware("auth");
+Route::post("/wijzigen/images/new", "ImagesController@store")
+        ->middleware("auth");
+Route::patch("/wijzigen/images/{id}/edit", "ImagesController@update")
+        ->middleware("auth");
+Route::get("/wijzigen/images/{id}/edit", "ImagesController@edit")
+      ->middleware("auth");
+Route::get("/wijzigen/images/{id}/delete", "ImagesController@delete")
+      ->middleware("auth");
+Route::get("/wijzigen/images/{id}/toggle", "ImagesController@toggle")
+      ->middleware("auth");

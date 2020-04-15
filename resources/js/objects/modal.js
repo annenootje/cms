@@ -13,7 +13,7 @@ export default class Modal {
         /**
          * @type {NodeListOf<Element>}
          */
-        this.delete_button = document.querySelectorAll('.overview.list .item .delete');
+        this.delete_button = document.querySelectorAll('.control.delete');
         this.cross = this._container.querySelector(".cross");
         this.cancel = this._container.querySelector(".cancel");
 
@@ -23,7 +23,6 @@ export default class Modal {
     }
 
     init() {
-        
                 
         let self = this;
 
@@ -49,11 +48,12 @@ export default class Modal {
     }
 
     showModal(button) {
-        console.log();
+        console.log(button)
+
         this._container.classList.add("active");
         this.text.innerHTML = 
-            "Weet je zeker dat je de blog '" + button.srcElement.dataset.name + "' wilt verwijderen?";
-        this.inline_delete_button.href = "/wijzigen/blogs/" + button.srcElement.dataset.number + "/delete";
+            "Weet je zeker dat je '" + button.srcElement.dataset.name + "' wilt verwijderen?";
+        this.inline_delete_button.href = "/wijzigen/" + button.srcElement.dataset.number + "/delete";
     }
 
     hideModal() {

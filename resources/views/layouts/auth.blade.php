@@ -7,15 +7,17 @@
         <title>BlendIt</title>
         <link rel="stylesheet" href="/css/app.css">
     </head>
-    <body id="app">
+    <body>
+        <div id="app">
 
-        <main class="login-container">
-            <div class="image">
-                <img src="/img/login-background.svg" alt="">
-            </div>
-            @yield('content')
-        </main>
-        <script src="/js/app.js"></script>
-        <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+            <main class="login-container">
+                <div class="image">
+                    <img src="/img/login-background.svg" alt="">
+                </div>
+                @yield('content')
+            </main>
+            <script src="/js/app.js"></script>
+            <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+        </div>
     </body>
 </html>

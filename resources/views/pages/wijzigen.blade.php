@@ -11,69 +11,54 @@
         <div class="container">
             <div class="overview dashboard">
 
-                <div class="item">
-                    <div>
-                        <h2 class="title">Blog</h2>
-                        <p class="text">
-                            Wijzig en cre&#235;er blogs
-                        </p>
-                    </div>
-                    <div class="progress">
-                        <div
-                            class="inner red"
-                            data-procent="70">
-                        </div>
-                    </div>
-                    <div class="controls">
-                        <a
-                            class="control"
-                            href="/wijzigen/blogs/new"
-                        >
-                            <img
-                                src="/img/icons/add-white.svg"
-                                alt="">
-                            <p>Toevoegen</p>
-                        </a>
-                        <a
-                            class="control"
-                            href="/wijzigen/blogs"
-                        >
-                            <img
-                                src="/img/icons/edit-white.svg"
-                                alt="">
-                            <p>Wijzigen</p>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div>
-                        <h2 class="title">Openingstijden</h2>
-                        <p class="text">
-                            Wijzig de openingstijden
-                        </p>
-                    </div>
-                    <div class="progress">
-                        <div
-                            class="inner red"
-                            data-procent="95">
-                        </div>
-                    </div>
-                    <div class="controls">
-                        <a
-                            class="control"
-                            href="/wijzigen/openingstijden"
-                        >
-                            <img
-                                src="/img/icons/edit-white.svg"
-                                alt="">
-                            <p>
-                                Wijzigen
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                
+                @include(".widgets.edit-item", [
+                    'title' => "Blogs", 
+                    "description" => "Wijzig en creëer blogs",
+                    "addLink" => "/wijzigen/blogs/new",
+                    "editLink" => "/wijzigen/blogs",
+                    "progress" => "90"
+                ])
+
+                @include(".widgets.edit-item", [
+                    'title' => "Contact", 
+                    "description" => "Contact gegevens, adres, route en bereikbaarheid",
+                    "addLink" => "",
+                    "editLink" => "/wijzigen/contactdetails",
+                    "progress" => "90"
+                ])
+
+                @include(".widgets.edit-item", [
+                    'title' => "Foto's en video's", 
+                    "description" => "Voeg media toe",
+                    "addLink" => "/wijzigen/images/add",
+                    "editLink" => "/wijzigen/images",
+                    "progress" => "50"
+                ])
+
+                @include(".widgets.edit-item", [
+                    'title' => "Openingstijden", 
+                    "description" => "Wijzig de openingstijden",
+                    "addLink" => "",
+                    "editLink" => "/wijzigen/openingstijden",
+                    "progress" => "25"
+                ])
+
+                @include(".widgets.edit-item", [
+                    'title' => "Reviews", 
+                    "description" => "Wijzig en voeg reviews toe",
+                    'addLink' => "/wijzigingen/reviews/new",
+                    'editLink' => "/wijzigingen/reviews",
+                    'progress' => "10"
+                ])
+
+                @include(".widgets.edit-item", [
+                    'title' => "Werknemers", 
+                    "description" => "Wijzig en voeg werknemers toe",
+                    'addLink' => "/wijzigen/employees/new",
+                    'editLink' => "/wijzigingen/employees",
+                    'progress' => "70"
+                ])
+               
             </div>
         </div>
     </div>

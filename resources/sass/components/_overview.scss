@@ -92,6 +92,7 @@
                 p {
                     color: white;
                     margin-top: 15px;
+                    pointer-events: none;
                 }
 
                 &:hover {
@@ -109,6 +110,30 @@
             }
             .status {
                 margin-bottom: 20px;
+            }
+        }
+
+        &.upload {
+            padding: 0;
+            background: transparent;
+
+            .image {
+                position: relative;
+
+                padding-top: 70%;
+
+                background-size: cover;
+                background-position: center;
+
+                embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: 100%;
+                    height: 100%;
+                    margin-bottom: 15px;
+                }
             }
         }
 

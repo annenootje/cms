@@ -48,7 +48,7 @@
                                         src="/img/icons/eye-white.svg"
                                         alt="">
                                     <p>
-                                        Bekijken
+                                        Uitslag
                                     </p>
                                 </a>
                             @endif
@@ -68,7 +68,10 @@
                 @endforeach
             </div>
         </div>
-        @include('./widgets/divider', ['text' => "Test toevoegen", 'link' => "/testen/new"])
+        @include('./widgets/divider', [
+            'text' => "Test toevoegen", 
+            'link' => "/testen/new"
+        ])
     </div>
     @include('/widgets/modal')
 @endsection

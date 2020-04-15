@@ -61,7 +61,10 @@
                 @endif
             </div>
         </div>
-        @include('./widgets/divider', ['text' => "Blog toevoegen", 'link' => "/wijzigen/blogs/new"])
+        @include('./widgets/divider', [
+            'text' => "Blog toevoegen", 
+            'link' => "/wijzigen/blogs/new"
+        ])
     </div>
     @include('/widgets/modal')
 @endsection
