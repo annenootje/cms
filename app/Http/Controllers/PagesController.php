@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Blog;
 use App\Test;
+use App\Dashboarditem;
 
 class PagesController extends Controller
 {
@@ -14,8 +15,24 @@ class PagesController extends Controller
         $name = Auth::user()->name;
         $name = substr($name, 0, strpos($name, ' '));
         $welcome = "Welkom " . $name;
+
+        $dashboarditems = Dashboarditem::all()->sortBy('title');
         
-        return view('pages.wijzigen')
+        return view('pages.wijzigen',
+            compact('dashboarditems'))
+            ->with([
+                "message", $message,
+                "welcome" => $welcome
+            ]);
+    }
+    public function wijzigen() {
+        $message = "Kies een element";
+        $welcome = "Website wijzigen";
+
+        $dashboarditems = Dashboarditem::all()->sortBy('title');
+        
+        return view('pages.wijzigen',
+            compact('dashboarditems'))
             ->with([
                 "message", $message,
                 "welcome" => $welcome

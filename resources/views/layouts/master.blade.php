@@ -38,7 +38,7 @@
                             <div class="item">
                                 <a
                                     href="/wijzigen"
-                                    class="{{ Request::is('wijzigen*') ? 'active' : '' }}">
+                                    class="{{ Request::is('wijzigen*') || Request::is('/') ? 'active' : '' }}">
                                         Wijzigen
                                 </a>
                             </div>
@@ -63,9 +63,8 @@
                                     class="{{ Request::is('resultaten*') ? 'active' : '' }}">
                                         Resultaten
                                 </a>
-                                
                             </div>
-                            <div class="item">
+                            {{-- <div class="item">
                                 <a
                                 href="/bestellingen"
                                 class="{{ Request::is('bestellingen*') ? 'active' : '' }}">
@@ -75,6 +74,13 @@
                                             {{ count($openOrders) }}
                                         </span>
                                     @endif
+                                </a>
+                            </div> --}}
+                            <div class="item">
+                                <a
+                                href="/aanmeldingen"
+                                class="{{ Request::is('aanmeldingen*') ? 'active' : '' }}">
+                                    Aanmeldingen
                                 </a>
                             </div>
                         </nav>

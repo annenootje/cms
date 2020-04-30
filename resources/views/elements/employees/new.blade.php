@@ -18,7 +18,9 @@
                     <label for="image">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            <div class="image placeholder"></div>
+                            <div class="image placeholder choose-image">
+                                <img src="" class="chosenImage" alt="">
+                            </div>
                         </div>
                     </div>
 
@@ -50,6 +52,10 @@
                     class="button"
                     value="Werknemer toevoegen">
 
+                @include('/widgets/images-modal', [
+                    'images' => $images,
+                    'chosenImage' => ""
+                ])
             </form>
         </div>    
     </div>

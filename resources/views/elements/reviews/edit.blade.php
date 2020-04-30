@@ -16,7 +16,9 @@
                     <label for="title">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            <div class="image placeholder"></div>
+                            <div class="image placeholder choose-image">
+                                <img src="{{$review->image}}" class="chosenImage" alt="">
+                            </div>
                         </div>
                     </div>
                     <label for="name">Naam</label>
@@ -26,14 +28,18 @@
                     <textarea 
                         name="text"
                         id="text"
-                        class="large"
                     >{{$review->text}}</textarea>
                 </div>
 
                 <input
                     type="submit"
                     class="button"
-                    value="Werknemer wijzigen">
+                    value="Review wijzigen">
+
+                @include('/widgets/images-modal', [
+                    'images' => $images,
+                    'chosenImage' => $review->image
+                ])
 
             </form>
         </div>    

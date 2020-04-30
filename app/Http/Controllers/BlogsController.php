@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Image;
 
 class BlogsController extends Controller
 {
@@ -18,14 +19,17 @@ class BlogsController extends Controller
     public function edit($id) {
 
         $blog = Blog::find($id);
+        $images = Image::all();
 
         return view("/elements/blogs/edit",
-            compact('blog'));
+            compact('blog', 'images'));
     }
 
     public function new() {
+        $images = Image::all();
 
-        return view("/elements/blogs/new");
+        return view("/elements/blogs/new",
+            compact("images"));
     }
 
     public function store() {

@@ -3,7 +3,7 @@
 @section('content')
     <div class="part small">
         <div class="container">
-            <h1>Foto uploaden toevoegen</h1>
+            <h1>Foto uploaden</h1>
         </div>
 
         <div class="container tab-menu">

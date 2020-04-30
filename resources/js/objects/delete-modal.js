@@ -1,4 +1,4 @@
-export default class Modal {
+export default class DeleteModal {
 
     /**
      * @param   {Element} element

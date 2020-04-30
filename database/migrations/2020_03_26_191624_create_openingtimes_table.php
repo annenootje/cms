@@ -16,7 +16,7 @@ class CreateOpeningtimesTable extends Migration
         Schema::create('openingtimes', function (Blueprint $table) {
             $table->id();
             $table->string('day');
-            $table->string('value')->nullable;
+            $table->string('value')->default(NULL);
             $table->timestamps();
         });
     }

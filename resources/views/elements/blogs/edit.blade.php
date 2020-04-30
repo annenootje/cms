@@ -20,9 +20,9 @@
                     <label for="title">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            <div class="image placeholder"></div>
-                            <div class="image"
-                            style="background-image:url('/img/elephant.jpg')"></div>
+                            <div class="image placeholder choose-image">
+                                <img src="{{$blog->image}}" class="chosenImage" alt="">
+                            </div>
                         </div>
                     </div>
                     <label for="title">Titel</label>
@@ -55,10 +55,18 @@
                     <input type="text" id="metadescription" name="metadescription" value="{{$blog->metadescription}}">
                 </div>
 
-                <input
-                    type="submit"
-                    class="button"
-                    value="Blog wijzigen">
+                <div class="submit-box">
+                    <input
+                        type="submit"
+                        class="button"
+                        value="Blog wijzigen">
+                    <a href="/wijzigen/blogs" class="grey cancel">Annuleren</a>
+                </div>
+                
+                @include('/widgets/images-modal', [
+                    'images' => $images,
+                    'chosenImage' => $blog->image
+                ])
 
             </form>
         </div>    

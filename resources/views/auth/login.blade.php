@@ -13,17 +13,15 @@
                 Onjuiste code, probeer opnieuw
             </p>
         @else
-            <p>
-                Voer de code in om verder te gaan
-            </p>
+            <p>Voer de code in om verder te gaan</p>
         @enderror
 
         <div class="login-inputs">
-            <input type="text" v-on:input="checkLogin(1)" class="cirkel" autofocus>
-            <input type="text" v-on:input="checkLogin(2)" class="cirkel">
-            <input type="text" v-on:input="checkLogin(3)" class="cirkel">
-            <input type="text" v-on:input="checkLogin(4)" class="cirkel">
-            <input type="text" v-on:input="checkLogin(5)" class="cirkel">
+            <input type="text" v-on:input="checkLogin(1)" v-on:keyup.delete="backLogin(1)" class="cirkel" autofocus>
+            <input type="text" v-on:input="checkLogin(2)" v-on:keyup.delete="backLogin(2)" class="cirkel">
+            <input type="text" v-on:input="checkLogin(3)" v-on:keyup.delete="backLogin(3)" class="cirkel">
+            <input type="text" v-on:input="checkLogin(4)" v-on:keyup.delete="backLogin(4)" class="cirkel">
+            <input type="text" v-on:input="checkLogin(5)" v-on:keyup.delete="backLogin(5)" class="cirkel">
         </div>
 
         <!-- hidden inputs -->

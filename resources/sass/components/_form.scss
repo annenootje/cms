@@ -20,13 +20,15 @@ form {
     input[type="email"],
     input[type="number"],
     input[type="password"],
-    textarea
+    textarea,
+    select
     {
         padding: 16px 15px;
         width: 100%;
         border: none;
         box-shadow: $box-shadow-1;
         outline: none;
+        border-radius: 3px;
         -webkit-appearance: none;
 
         font-weight: 500;
@@ -61,6 +63,16 @@ form {
                 margin-left: 10px;
             }
         }
+    }
+
+    select {
+        background: white; 
+        margin-top: 10px;
+
+        background-image: url('/img/icons/arrow-down-black.svg');
+        @include containBackground;
+        background-size: 13px;
+        background-position: right 20px center;
     }
 
     input[type="submit"] {

@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal delete">
     <div class="inner">
         <h2>
             Weet je zeker dat je dit element wilt verwijderen?

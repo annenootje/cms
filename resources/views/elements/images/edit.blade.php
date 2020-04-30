@@ -20,7 +20,6 @@
                 <div class="tab tab-1 active">
 
                     @if (count($errors) > 0)
-
                         <div class="alert alert-danger">
                             Er is een probleem
                             <ul>
@@ -29,15 +28,11 @@
                                 @endforeach
                             </ul>
                         </div>
-
                     @endif
 
                     <label for="image">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            {{-- <div class="image placeholder">
-                                <input type="file" name="image"/>
-                            </div> --}}
                             @if($image->type === "application/pdf")
                                 <div class="image">
                                     <embed src="{{$image->pathname}}" />

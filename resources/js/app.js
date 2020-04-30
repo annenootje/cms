@@ -3,9 +3,10 @@ require('./bootstrap');
 import './init/editor';
 
 import Tabmenu from './objects/tab-menu';
-import Modal from './objects/modal';
+import DeleteModal from './objects/delete-modal';
 import Progress from './objects/progress';
 import ImageInput from './objects/imageinput';
+import ImageModal from './objects/image-modal';
 
 // import './charts/line-graphic';
 // import './charts/bar-graphic-system';
@@ -22,9 +23,10 @@ if (split_url.length > 2) {
 
 $(() => {
     const tabmenus = document.querySelectorAll('.tab-menu');
-    const modals = document.querySelectorAll('.modal');
+    const deleteModals = document.querySelectorAll('.modal.delete');
     const progresses = document.querySelectorAll('.item .progress .inner');
     const imageInputs = document.querySelectorAll('.image.placeholder input');
+    const imageModals = document.querySelectorAll('.modal.images');
 
     if (tabmenus.length > 0) {
         tabmenus.forEach((tabmenu) => {
@@ -32,9 +34,15 @@ $(() => {
             object.init();
         });
     }
-    if (modals.length > 0) {
-        modals.forEach((modal) => {
-            const object = new Modal(modal);
+    if (deleteModals.length > 0) {
+        deleteModals.forEach((deleteModal) => {
+            const object = new DeleteModal(deleteModal);
+            object.init();
+        });
+    }
+    if (imageModals.length > 0) {
+        imageModals.forEach((imageModal) => {
+            const object = new ImageModal(imageModal);
             object.init();
         });
     }
@@ -80,6 +88,15 @@ const app = new Vue({
                 inputs[index].focus();
             }
 
+        },
+
+        backLogin(index) {
+            const inputs = document.querySelectorAll('.login-inputs input');
+            
+            if( inputs[index - 1].value.length === 0 ) {
+                inputs[index - 2].value = "";
+                inputs[index - 2].focus();
+            }
         },
 
         submitLogin() {

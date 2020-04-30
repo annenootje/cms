@@ -9,7 +9,9 @@ Route::get("/logout", "PagesController@logout");
 //Hoofdpagina"s
 Route::get("/", "PagesController@index")
         ->middleware("auth");
-Route::get("/wijzigen", "PagesController@index")
+Route::get("/wijzigen", "PagesController@wijzigen")
+        ->middleware("auth");
+Route::get("/wijzigen/{id}/toggle-favorite", "DashboardController@favorite")
         ->middleware("auth");
 Route::get("/resultaten", "PagesController@resultaten")
         ->middleware("auth");
@@ -44,6 +46,12 @@ Route::get("/wijzigen/contactdetails", "ContactdetailsController@index")
 Route::patch("/wijzigen/contactdetails/edit", "ContactdetailsController@update")
         ->middleware("auth");
 
+//Errors
+Route::get("/wijzigen/errors", "ErrorsController@index")
+        ->middleware("auth");
+Route::patch("/wijzigen/errors/edit", "ErrorsController@update")
+        ->middleware("auth");
+
 //Testen
 Route::get("/testen/new", "TestsController@new")
         ->middleware("auth");
@@ -70,6 +78,38 @@ Route::get("/wijzigen/blogs/{id}/edit", "BlogsController@edit")
 Route::get("/wijzigen/blogs/{id}/delete", "BlogsController@delete")
       ->middleware("auth");
 Route::get("/wijzigen/blogs/{id}/toggle", "BlogsController@toggle")
+      ->middleware("auth");
+
+//Vacatures
+Route::get("/wijzigen/vacatures", "VacaturesController@overview")
+        ->middleware("auth");
+Route::get("/wijzigen/vacatures/new", "VacaturesController@new")
+        ->middleware("auth");
+Route::post("/wijzigen/vacatures/new", "VacaturesController@store")
+        ->middleware("auth");
+Route::patch("/wijzigen/vacatures/{id}/edit", "VacaturesController@update")
+        ->middleware("auth");
+Route::get("/wijzigen/vacatures/{id}/edit", "VacaturesController@edit")
+      ->middleware("auth");
+Route::get("/wijzigen/vacatures/{id}/delete", "VacaturesController@delete")
+      ->middleware("auth");
+Route::get("/wijzigen/vacatures/{id}/toggle", "VacaturesController@toggle")
+      ->middleware("auth");
+
+//Gerechten
+Route::get("/wijzigen/dishes", "DishesController@overview")
+        ->middleware("auth");
+Route::get("/wijzigen/dishes/new", "DishesController@new")
+        ->middleware("auth");
+Route::post("/wijzigen/dishes/new", "DishesController@store")
+        ->middleware("auth");
+Route::patch("/wijzigen/dishes/{id}/edit", "DishesController@update")
+        ->middleware("auth");
+Route::get("/wijzigen/dishes/{id}/edit", "DishesController@edit")
+      ->middleware("auth");
+Route::get("/wijzigen/dishes/{id}/delete", "DishesController@delete")
+      ->middleware("auth");
+Route::get("/wijzigen/dishes/{id}/toggle", "DishesController@toggle")
       ->middleware("auth");
 
 // Employees

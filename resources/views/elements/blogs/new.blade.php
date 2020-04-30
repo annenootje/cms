@@ -19,15 +19,17 @@
                     <label for="title">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            <div class="image placeholder"></div>
+                            <div class="image placeholder choose-image">
+                                <img src="" class="chosenImage" alt="">
+                            </div>
                         </div>
                     </div>
 
                     <label for="title">Titel</label>
-                    <input type="text" id="title" name="title" autofocus>
+                    <input type="text" id="title" name="title" required autofocus>
 
                     <label for="subtitle">Subtitel</label>
-                    <input type="text" id="subtitle" name="subtitle">
+                    <input type="text" id="subtitle" name="subtitle" required>
 
                     <label for="preview">Preview</label>
                     <textarea type="text" id="preview" name="preview"
@@ -41,6 +43,7 @@
                         type="hidden" 
                         class="editor-data" 
                         name="content"
+                        required
                     >
                 </div>
 
@@ -60,7 +63,12 @@
                     class="button"
                     value="Blog toevoegen">
 
+                @include('/widgets/images-modal', [
+                    'images' => $images,
+                    'chosenImage' => ""
+                ])
             </form>
         </div>    
     </div>
+
 @endsection

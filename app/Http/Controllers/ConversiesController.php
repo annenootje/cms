@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Registration;
 
 class ConversiesController extends Controller
 {
@@ -17,8 +18,10 @@ class ConversiesController extends Controller
     
     public function aanmeldingen() {
         $message = "Bekijk jouw aanmeldingen";
+        $registrations = Registration::all();
 
-        return view('conversies.aanmeldingen')
+        return view('conversies.aanmeldingen',
+            compact('registrations'))
             ->with(["message" => $message]);
     }
 }

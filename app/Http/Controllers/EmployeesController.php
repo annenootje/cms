@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Image;
 
 class EmployeesController extends Controller
 {
@@ -18,14 +19,16 @@ class EmployeesController extends Controller
     public function edit($id) {
 
         $employee = Employee::find($id);
+        $images = Image::all();
 
         return view("/elements/employees/edit",
-            compact('employee'));
+            compact('employee', 'images'));
     }
 
     public function new() {
-
-        return view("/elements/employees/new");
+        $images = Image::all();
+        return view("/elements/employees/new",
+            compact('images'));
     }
 
     public function store() {

@@ -20,14 +20,18 @@
 @import "./components/question";
 @import "./components/sub-menu";
 @import "./components/tab-menu";
-@import "./components/modal";
 @import "./components/results";
 @import "./components/card";
 @import "./components/filter";
 @import "./components/recommendations";
 @import "./components/table";
 @import "./components/divider";
+@import "./components/favorite";
 
 //form
 @import "./form/images";
 @import "./form/editor";
+
+//modals
+@import "./modals/modal.scss";
+@import "./modals/image-modal.scss";

@@ -28,7 +28,7 @@
                             </a>
                             <div class="controls">
                                 <div class="control delete"
-                                    data-number="{{$review->id}}"
+                                    data-number="reviews/{{$review->id}}"
                                     data-name="{{$review->name}}">
                                     <img src="/img/icons/bin-red.svg" alt="">
                                 </div>

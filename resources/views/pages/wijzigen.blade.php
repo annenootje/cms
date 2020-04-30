@@ -5,62 +5,77 @@
     <div class="part">
         <div class="container">
             <h1>{{ $welcome }}</h1>
-            <p>Kies een element om te wijzigen</p>
+            <p class="black">Kies een element om te wijzigen of toe te voegen</p>
+        </div>
+    </div>
+
+    @if(count($dashboarditems->where('isFavorite')) > 0)
+    <div class="part">
+        <div class="container">
+            <p class="title-divider">
+                Favoriete onderdelen
+            </p>
+            <div class="overview dashboard">
+
+                @foreach($dashboarditems->where('isFavorite') as $item)
+                    @include(".widgets.edit-item", [
+                        'id' => "$item->id",
+                        'title' => "$item->title", 
+                        "description" => "$item->description",
+                        "addLink" => "$item->addLink",
+                        "editLink" => "$item->editLink",
+                        "progress" => "$item->progress",
+                        "isFavorite" => "$item->isFavorite"
+                    ])
+                @endforeach
+
+            </div>
+        </div>
+    </div>
+    @endif
+
+    <div class="part">
+        <div class="container">
+            <p class="title-divider">
+                Alle onderdelen
+            </p>
+            <div class="overview dashboard">
+
+                @foreach($dashboarditems->where('category', '!=', 'overig') as $item)
+                    @include(".widgets.edit-item", [
+                        'id' => "$item->id",
+                        'title' => "$item->title", 
+                        "description" => "$item->description",
+                        "addLink" => "$item->addLink",
+                        "editLink" => "$item->editLink",
+                        "progress" => "$item->progress",
+                        "isFavorite" => "$item->isFavorite"
+                    ])
+                @endforeach
+            
+            </div>
         </div>
     </div>
 
     <div class="part">
         <div class="container">
+            <p class="title-divider">
+                Overige onderdelen
+            </p>
             <div class="overview dashboard">
 
-                @include(".widgets.edit-item", [
-                    'title' => "Blogs", 
-                    "description" => "Wijzig en creëer blogs",
-                    "addLink" => "/wijzigen/blogs/new",
-                    "editLink" => "/wijzigen/blogs",
-                    "progress" => "90"
-                ])
-
-                @include(".widgets.edit-item", [
-                    'title' => "Contact", 
-                    "description" => "Contact gegevens, adres, route en bereikbaarheid",
-                    "addLink" => "",
-                    "editLink" => "/wijzigen/contactdetails",
-                    "progress" => "90"
-                ])
-
-                @include(".widgets.edit-item", [
-                    'title' => "Foto's en video's", 
-                    "description" => "Voeg media toe",
-                    "addLink" => "/wijzigen/images/new",
-                    "editLink" => "/wijzigen/images",
-                    "progress" => "50"
-                ])
-
-                @include(".widgets.edit-item", [
-                    'title' => "Openingstijden", 
-                    "description" => "Wijzig de openingstijden",
-                    "addLink" => "",
-                    "editLink" => "/wijzigen/openingstijden",
-                    "progress" => "25"
-                ])
-
-                @include(".widgets.edit-item", [
-                    'title' => "Reviews", 
-                    "description" => "Wijzig en voeg reviews toe",
-                    'addLink' => "/wijzigingen/reviews/new",
-                    'editLink' => "/wijzigingen/reviews",
-                    'progress' => "10"
-                ])
-
-                @include(".widgets.edit-item", [
-                    'title' => "Werknemers", 
-                    "description" => "Wijzig en voeg werknemers toe",
-                    'addLink' => "/wijzigen/employees/new",
-                    'editLink' => "/wijzigingen/employees",
-                    'progress' => "70"
-                ])
-               
+                @foreach($dashboarditems->where('category', 'overig') as $item)
+                    @include(".widgets.edit-item", [
+                        'id' => "$item->id",
+                        'title' => "$item->title", 
+                        "description" => "$item->description",
+                        "addLink" => "$item->addLink",
+                        "editLink" => "$item->editLink",
+                        "progress" => "$item->progress",
+                        "isFavorite" => "$item->isFavorite"
+                    ])
+                @endforeach
+            
             </div>
         </div>
     </div>

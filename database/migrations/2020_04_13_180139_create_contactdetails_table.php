@@ -15,11 +15,11 @@ class CreateContactdetailsTable extends Migration
     {
         Schema::create('contactdetails', function (Blueprint $table) {
             $table->id();
-            $table->string("telephone");
-            $table->string("email");
-            $table->string("address");
-            $table->string("city");
-            $table->string("zipcode");
+            $table->string("telephone")->default("06");
+            $table->string("email")->default("NULL");
+            $table->string("address")->default(NULL);
+            $table->string("city")->default(NULL);
+            $table->string("zipcode")->default(NULL);
             $table->timestamps();
         });
     }

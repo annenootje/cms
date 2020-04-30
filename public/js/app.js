@@ -49380,10 +49380,12 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _init_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./init/editor */ "./resources/js/init/editor.js");
 /* harmony import */ var _objects_tab_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./objects/tab-menu */ "./resources/js/objects/tab-menu.js");
-/* harmony import */ var _objects_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./objects/modal */ "./resources/js/objects/modal.js");
+/* harmony import */ var _objects_delete_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./objects/delete-modal */ "./resources/js/objects/delete-modal.js");
 /* harmony import */ var _objects_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./objects/progress */ "./resources/js/objects/progress.js");
 /* harmony import */ var _objects_imageinput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./objects/imageinput */ "./resources/js/objects/imageinput.js");
+/* harmony import */ var _objects_image_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./objects/image-modal */ "./resources/js/objects/image-modal.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -49403,9 +49405,10 @@ if (split_url.length > 2) {
 
 $(function () {
   var tabmenus = document.querySelectorAll('.tab-menu');
-  var modals = document.querySelectorAll('.modal');
+  var deleteModals = document.querySelectorAll('.modal.delete');
   var progresses = document.querySelectorAll('.item .progress .inner');
   var imageInputs = document.querySelectorAll('.image.placeholder input');
+  var imageModals = document.querySelectorAll('.modal.images');
 
   if (tabmenus.length > 0) {
     tabmenus.forEach(function (tabmenu) {
@@ -49414,9 +49417,16 @@ $(function () {
     });
   }
 
-  if (modals.length > 0) {
-    modals.forEach(function (modal) {
-      var object = new _objects_modal__WEBPACK_IMPORTED_MODULE_2__["default"](modal);
+  if (deleteModals.length > 0) {
+    deleteModals.forEach(function (deleteModal) {
+      var object = new _objects_delete_modal__WEBPACK_IMPORTED_MODULE_2__["default"](deleteModal);
+      object.init();
+    });
+  }
+
+  if (imageModals.length > 0) {
+    imageModals.forEach(function (imageModal) {
+      var object = new _objects_image_modal__WEBPACK_IMPORTED_MODULE_5__["default"](imageModal);
       object.init();
     });
   }
@@ -49463,6 +49473,14 @@ var app = new Vue({
         this.submitLogin();
       } else {
         inputs[index].focus();
+      }
+    },
+    backLogin: function backLogin(index) {
+      var inputs = document.querySelectorAll('.login-inputs input');
+
+      if (inputs[index - 1].value.length === 0) {
+        inputs[index - 2].value = "";
+        inputs[index - 2].focus();
       }
     },
     submitLogin: function submitLogin() {
@@ -49688,6 +49706,178 @@ if (editorChecker) {
 
 /***/ }),
 
+/***/ "./resources/js/objects/delete-modal.js":
+/*!**********************************************!*\
+  !*** ./resources/js/objects/delete-modal.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DeleteModal; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var DeleteModal = /*#__PURE__*/function () {
+  /**
+   * @param   {Element} element
+   */
+  function DeleteModal(element) {
+    _classCallCheck(this, DeleteModal);
+
+    /**
+     * @type {Element}
+     * @private
+     */
+    this._container = element;
+    /**
+     * @type {NodeListOf<Element>}
+     */
+
+    this.delete_button = document.querySelectorAll('.control.delete');
+    this.cross = this._container.querySelector(".cross");
+    this.cancel = this._container.querySelector(".cancel");
+    this.text = this._container.querySelector(".inner h2");
+    this.inline_delete_button = this._container.querySelector(".controls .control.red");
+  }
+
+  _createClass(DeleteModal, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      var self = this;
+      this.delete_button.forEach(function (button) {
+        button.addEventListener('click', function (button) {
+          self.showModal(button);
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+          _this.hideModal();
+        }
+      });
+      this.cross.addEventListener('click', function () {
+        _this.hideModal();
+      });
+      this.cancel.addEventListener('click', function () {
+        _this.hideModal();
+      });
+    }
+  }, {
+    key: "showModal",
+    value: function showModal(button) {
+      console.log(button);
+
+      this._container.classList.add("active");
+
+      this.text.innerHTML = "Weet je zeker dat je '" + button.srcElement.dataset.name + "' wilt verwijderen?";
+      this.inline_delete_button.href = "/wijzigen/" + button.srcElement.dataset.number + "/delete";
+    }
+  }, {
+    key: "hideModal",
+    value: function hideModal() {
+      this._container.classList.remove("active");
+    }
+  }]);
+
+  return DeleteModal;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/objects/image-modal.js":
+/*!*********************************************!*\
+  !*** ./resources/js/objects/image-modal.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ImageModal; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ImageModal = /*#__PURE__*/function () {
+  /**
+   * @param   {Element} element
+   */
+  function ImageModal(element) {
+    _classCallCheck(this, ImageModal);
+
+    /**
+     * @type {Element}
+     * @private
+     */
+    this._container = element;
+    this.cross = this._container.querySelector(".cross");
+    this._button = document.querySelector('.choose-image');
+    this._options = this._container.querySelectorAll('.option');
+    this._chosenImage = document.querySelector('.chosenImage'); // chosenImage
+  }
+
+  _createClass(ImageModal, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      var self = this;
+      document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+          _this.hideModal();
+        }
+      });
+      this.cross.addEventListener('click', function () {
+        _this.hideModal();
+      });
+
+      this._button.addEventListener('click', function () {
+        _this.showModal();
+      });
+
+      this._options.forEach(function (option) {
+        option.addEventListener('change', function (e) {
+          self.hideModal();
+          self.getImage(e);
+        });
+      });
+    }
+  }, {
+    key: "showModal",
+    value: function showModal() {
+      this._container.classList.add("active");
+    }
+  }, {
+    key: "hideModal",
+    value: function hideModal() {
+      this._container.classList.remove("active");
+    }
+  }, {
+    key: "getImage",
+    value: function getImage(e) {
+      console.log(this._chosenImage);
+      console.log(e.srcElement.value);
+      $(this._chosenImage).attr('src', e.srcElement.value);
+    }
+  }]);
+
+  return ImageModal;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/objects/imageinput.js":
 /*!********************************************!*\
   !*** ./resources/js/objects/imageinput.js ***!
@@ -49730,97 +49920,10 @@ var Modal = /*#__PURE__*/function () {
 
         reader.onload = function (e) {
           $(self._chosenImage).attr('src', e.target.result);
-          console.log(self._chosenImage);
         };
 
         reader.readAsDataURL(self._container.files[0]);
       });
-    }
-  }]);
-
-  return Modal;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/objects/modal.js":
-/*!***************************************!*\
-  !*** ./resources/js/objects/modal.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Modal; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Modal = /*#__PURE__*/function () {
-  /**
-   * @param   {Element} element
-   */
-  function Modal(element) {
-    _classCallCheck(this, Modal);
-
-    /**
-     * @type {Element}
-     * @private
-     */
-    this._container = element;
-    /**
-     * @type {NodeListOf<Element>}
-     */
-
-    this.delete_button = document.querySelectorAll('.control.delete');
-    this.cross = this._container.querySelector(".cross");
-    this.cancel = this._container.querySelector(".cancel");
-    this.text = this._container.querySelector(".inner h2");
-    this.inline_delete_button = this._container.querySelector(".controls .control.red");
-  }
-
-  _createClass(Modal, [{
-    key: "init",
-    value: function init() {
-      var _this = this;
-
-      var self = this;
-      this.delete_button.forEach(function (button) {
-        button.addEventListener('click', function (button) {
-          self.showModal(button);
-        });
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === "Escape") {
-          _this.hideModal();
-        }
-      });
-      this.cross.addEventListener('click', function () {
-        _this.hideModal();
-      });
-      this.cancel.addEventListener('click', function () {
-        _this.hideModal();
-      });
-    }
-  }, {
-    key: "showModal",
-    value: function showModal(button) {
-      console.log(button);
-
-      this._container.classList.add("active");
-
-      this.text.innerHTML = "Weet je zeker dat je '" + button.srcElement.dataset.name + "' wilt verwijderen?";
-      this.inline_delete_button.href = "/wijzigen/" + button.srcElement.dataset.number + "/delete";
-    }
-  }, {
-    key: "hideModal",
-    value: function hideModal() {
-      this._container.classList.remove("active");
     }
   }]);
 

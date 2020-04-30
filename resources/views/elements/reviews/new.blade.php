@@ -15,16 +15,19 @@
                     <label for="title">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            <div class="image placeholder"></div>
+                            <div class="image placeholder choose-image">
+                                <img src="" class="chosenImage" alt="">
+                            </div>
                         </div>
                     </div>
                     <label for="name">Reviewer</label>
-                    <input type="text" id="name" name="name" autofocus>
+                    <input type="text" id="name" name="name" required autofocus>
 
                     <label for="name">Review</label>
                     <textarea 
                         name="text"
                         id="text"
+                        required
                     ></textarea>
                 </div>
 
@@ -33,6 +36,10 @@
                     class="button"
                     value="Review toevoegen">
 
+                @include('/widgets/images-modal', [
+                    'images' => $images,
+                    'chosenImage' => ""
+                ])
             </form>
         </div>    
     </div>

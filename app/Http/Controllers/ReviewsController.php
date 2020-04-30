@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Review;
+use App\Image;
 
 class ReviewsController extends Controller
 {
@@ -18,14 +19,19 @@ class ReviewsController extends Controller
     public function edit($id) {
 
         $review = Review::find($id);
+        $images = Image::all();
+
 
         return view("/elements/reviews/edit",
-            compact('review'));
+            compact('review', 'images'));
     }
 
     public function new() {
 
-        return view("/elements/reviews/new");
+        $images = Image::all();
+
+        return view("/elements/reviews/new",
+        compact('images'));
     }
 
     public function store() {

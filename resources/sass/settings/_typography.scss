@@ -126,6 +126,10 @@ a {
             color: $black;
         }
     }
+
+    &.cancel {
+        margin-left: 10px;
+    }
 }
 
 span {

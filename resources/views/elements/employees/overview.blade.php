@@ -47,7 +47,7 @@
                 @endif
             </div>
         </div>
-        @include('./widgets/divider', ['text' => "werknemer toevoegen", 'link' => "/wijzigen/employees/new"])
+        @include('./widgets/divider', ['text' => "Werknemer toevoegen", 'link' => "/wijzigen/employees/new"])
     </div>
     @include('/widgets/modal')
 @endsection

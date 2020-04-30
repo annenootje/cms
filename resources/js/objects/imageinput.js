@@ -25,8 +25,7 @@ export default class Modal {
 
             reader.onload = function (e) {
                 $(self._chosenImage)
-                    .attr('src', e.target.result)
-                    console.log(self._chosenImage)
+                    .attr('src', e.target.result);
             };
 
             reader.readAsDataURL(self._container.files[0]);

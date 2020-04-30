@@ -1,0 +1,30 @@
+.favorite {
+    position: absolute;
+    top: 33px;
+    right: 30px;
+
+    cursor: pointer;
+    opacity: .9;
+
+    svg {
+        width: 15px;
+        height: auto;
+        
+        path {
+            fill: white;
+            stroke: $blue-800;
+            stroke-width: 1.5px;
+            stroke-linecap: round;
+
+            transition: $transition;
+        }
+
+        &.filled,
+        &:hover
+        {
+            path {
+                fill: $blue-800;
+            }
+        }
+    }
+}

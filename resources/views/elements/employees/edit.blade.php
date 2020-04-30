@@ -19,7 +19,9 @@
                     <label for="title">Afbeelding</label>
                     <div class="images">
                         <div class="inner">
-                            <div class="image placeholder"></div>
+                            <div class="image placeholder choose-image">
+                                <img src="{{$employee->image}}" class="chosenImage" alt="">
+                            </div>
                         </div>
                     </div>
                     <label for="name">Naam</label>
@@ -47,6 +49,11 @@
                     type="submit"
                     class="button"
                     value="Werknemer wijzigen">
+
+                @include('/widgets/images-modal', [
+                    'images' => $images,
+                    'chosenImage' => $employee->image
+                ])
 
             </form>
         </div>    
